@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrasi Pengguna</title>
+  <link rel="icon" href="asset/TitleE-bphtb.png" type="image/png">
+  <!---->
+  <link rel="stylesheet" href="design-n-script/design_css/asset_pelengkap.css">
+  <!---->
+  <link rel="stylesheet" href="design-n-script/design_css/registrasi-design.css">
+
+</head>
+<body>
+  <div class="container">
+    <h1>Pendaftaran Akun BPHTB Online</h1>
+    <form id="registration-form">
+        <div class="form-row">
+            <div class="form-column">
+              <div class="form-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="nama" name="nama" placeholder="Nama Lengkap" required>
+              </div>
+                <div class="form-group">
+                    <i class="fas fa-id-card"></i>
+                    <input type="number" id="nik" name="nik" pattern="\d{16}$" maxlength="16" placeholder="Isi NIK sesuai KTP">
+                    <div id="nikError" class="error-message">NIK harus 16 digit</div>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-phone"></i>
+                    <input type="number" id="telepon" name="telepon" pattern="^08\d{11}$" maxlength="13" placeholder="Pastikan no. telepon sesuai/cont: 08**" required>
+                </div>
+                <small>pastikan nik dan nama lengkap sesuai dengan ktp yang didaftarkan</small>
+            </div>
+            <div class="form-column">
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Kata Sandi" required>
+                    <i class="fas fa-eye toggle-password" data-target="password" style="cursor: pointer; position: absolute; right: 0px; top: 35%; transform: translateX(800%);"></i>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="repeatpassword" name="repeatpassword" placeholder="Ulangi Kata Sandi" required>
+                    <i class="fas fa-eye toggle-password" data-target="confirm-password" style="cursor: pointer; position: absolute; right: 10px; top: 35%; transform: translateX(800%);"></i>
+                    <div id="passwordError" class="error-message">Tolong sesuaikan kata sandi dan ulangi kata sandi</div>
+                </div>            
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="file-input">
+                <label for="fotoktp">KTP</label>
+                <input type="file" id="fotoktp" name="ktp" accept="image/png, image/jpeg, image/jpg, image/gif" required>
+            </div>
+            <small onclick="openModal()">panduan foto KTP!</small>
+        </div>
+        <div class="form-group buttons">
+            <button type="button" class="cancel" onclick="window.location.href='login.html'">Kembali</button>
+            <button type="submit" class="submit" id="submitBtn">Submit</button>
+        </div>
+        <p id="message"></p>
+    </form>
+</div>
+<!---->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+      <h2>Panduan Foto KTP</h2>
+      <img src="../ScriptnDesign_bphtb/file_gambar/Panduan_FotoKTP.png" alt="Panduan Foto KTP" class="guide-image">
+  </div>
+</div>
+  <!--script backend-->
+  <script src="script-backend/register-backend.js">  </script>
+  <!---->
+  <script src="registrasi.js"></script>
+</body>
+</html>

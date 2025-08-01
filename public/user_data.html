@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data User</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; }
+        th { background-color: #4CAF50; color: white; }
+        img { width: 80px; height: 80px; border-radius: 10px; }
+        button { cursor: pointer; padding: 8px 12px; margin: 5px; border: none; font-size: 14px; }
+        .edit-btn { background-color: #f1c40f; color: white; }
+        .delete-btn { background-color: #e74c3c; color: white; }
+    </style>
+</head>
+<body>
+
+    <h2>Daftar User</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Nama</th>
+                <th>NIK</th>
+                <th>Telepon</th>
+                <th>Email</th>
+                <th>Divisi</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody">
+            <tr><td colspan='7'>Memuat data...</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        async function fetchUsers() {
+            try {
+                const response = await fetch("/get-users");
+                const users = await response.json();
+                const tableBody = document.getElementById("userTableBody");
+                tableBody.innerHTML = "";
+
+                if (users.length === 0) {
+                    tableBody.innerHTML = "<tr><td colspan='7'>Tidak ada data pengguna</td></tr>";
+                    return;
+                }
+
+                users.forEach(user => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${user.userID}</td>
+                        <td>${user.nama}</td>
+                        <td>${user.NIK}</td>
+                        <td>${user.telepon}</td>
+                        <td>${user.email}</td>
+                        <td>${user.divisi}</td>
+                        <td><img src="/uploads/${encodeURIComponent(user.foto)}" alt="Foto"></td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Gagal mengambil data user:", error);
+                document.getElementById("userTableBody").innerHTML = "<tr><td colspan='7'>Gagal mengambil data pengguna</td></tr>";
+            }
+        }
+
+        async function generateUserID(divisi) {
+            const divisiPrefix = {
+                "Administrator": "A",
+                "PPAT": "PAT",
+                "PPATS": "PATS",
+                "LTB": "LTB",
+                "LSB": "LSB",
+                "Peneliti": "P",
+                "BANK": "BANK"
+            }[divisi] || "U";
+            
+            try {
+                const response = await fetch(`/get-latest-userID?divisi=${divisi}`);
+                const data = await response.json();
+                const lastNumber = data.latestNumber || 0;
+                const newNumber = String(lastNumber + 1).padStart(3, '0');
+                return `${divisiPrefix}-${newNumber}`;
+            } catch (error) {
+                console.error("Gagal membuat UserID:", error);
+                return `${divisiPrefix}-001`;
+            }
+        }
+
+        fetchUsers();
+    </script>
+</body>
+</html>

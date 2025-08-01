@@ -1,0 +1,186 @@
+list yang belum dikerjakan
+-gambar profile tertampil<checklist>
+- input dan menambahkan nip atau data pegawai di profile dan di user complete (checklist)
+- script kalender <checklist>
+- menampilkan admin dropdown
+- menampilkan member dropdown (checklist)
+- lupa kata sandi <checklist>
+- ganti katasandi <checklist>
+- akun yang sudah verifiedstatus "complete", akan ada notifikasi "selesaikan data pada profile anda", datanya merupakan "username" dan "nip" (catatan nip khusus pegawai saja) (checklist)
+- penyesuaian tata letak
+
+Sekarang kita create database tabel baru, dengan nama ppatk_bookingsspd_badan. isinya ada no.Booking, NOP PBB, Nama Wajib Pajak, Alamat Wajib Pajak, Kelurahan/Desa, Kabupaten/Kota, Tanggal, Tahun AJB, No.NPWP, RT, RW, camat wp, kode pos
+\
+
+ada 1 hal tambahan, ternyata bagian no booking serta bagian pemilik objek pajak harus 1 tabel database.
+
+(PENTING)
+-balik ke bagian ppatk untuk merancang ulang input form dan isi dari ppatk_bookingsspd,
+-tabel booking dapat di view pada bagian ppatk (untuk menginput file file penguat ppatk)
+-membuat bentuk file dengan bentuk pdf file, agar melihat struktural.
+-dalam tabel ltb (loket terima berkas) berkas berkas file, dapat di baca atau dilihat
+
+(sekarang bagian frontend, pada bagian ini "#overlay {
+    position: absolute;
+    margin-right: -60px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; /* Defaultnya sembunyi */
+    justify-content: center;
+    align-items: center;
+}
+
+#overlay-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 90%;
+}
+
+#close-btn {
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+h3 {
+    margin-top: 0;
+}
+", tolong designnya jadi lebih rapih, dimana datanya dibawah dari data tabelnya. bukan seperti gambar ini, jadi saat di click misal data yang pertama, maka akan seperti dropdown bukan dibawah dari tabel)
+list terbaru 
+-membuat bookingid dan nobooking selaras,
+-melanjutkan proyek sebelumnya
+
+(BARU)
+MENCOBA menggunakan foreign key pada userid maupun nama, untuk menjaga konsistensi data terkirim
+
+
+trackstatus = draft, diolah, dilanjutkan, diverifikasi, terverifikasi, terselesaikan, (dihapus)
+status = diterima, ditolak, diajukan, dikerjakan, diselesaikan
+
+profile pada ppatk dan wp, berbeda dengan profile lain, pada ppatk username harus dibuat menggunakan nama + gelar ppatk. wp tidak memiliki nip
+
+pada bagian ppatk, user ppatk ketika pertama kali mengupload ttd, maka ttd akan tersimpan di folder dan dapat digunakan kembali
+
+pada bagian peneliti, setelah data checkbox atau checklist disimpan, dokumen di unduh dan dibuat hardfile (dokumen), setelah itu dokumen di tanda tangan serta di cap stempel, 
+setelah itu dokumen di scan kembali lalu di upload ke nobooking yang dituju, tujuan setelah itu nobooking di kirim ke verif kasie dan mengubah trackstatus dari "dilanjutkan" menjadi "diverifikasi"
+
+setelah di tanda tangan kembali oleh peneliti verif kasie, dokumen akan dikirim atau diserahkan ke LSB dan trackstatus dari "diverifikasi" menjadi "terverifikasi". 
+
+setelahnya pada bagian LSB, dokumen diserahkan ke PPATK dan mengubah trackstatus dari "terverifikasi" menjadi "terselesaikan" serta data dari tabel data di ppatk akan dipindahkan ke Laporan rekap ppat/rincian laporan bulana
+
+
+mengubah tanggal terima dari "2025-05-07T17:00:00.000Z" menjadi dd-mm-yyyy +1 hari agar tidak mengambil hari kemarin, membuat tempat upload file untuk file yang sudah distempel.
+cap stempel (stempel dan tidak)
+
+USERID dan DIVISI
+ubah untuk userid PAT, divisinya menjadi PPAT
+dan untuk userid PATS, divisinya menjadi PPATS
+keduanya akan redirect ke ppat.
+-(checklist)
+
+Tambah tanda tangan kolaborasi dengan bsre
+PPAT CATATAN BARU (Online terlebih dahulu)
+catatan baru
+penggantian booking baru
+5 digit pertama kode ppat (2xxxx)
+, 4 digit tahun, 6 digit urut (kode urut berlanjut hingga tahun)
+xxxxx-2025-000001
+mengganti "beaperolehanHakAtasTanah_yangharusdibayar",menjadi "beaperolehanHakAtasTanah_yangtelahdibayar"
+input akta (akta tanah/akta jual beli/ akta hibah/dsb)
+
+(pengerjaan sekarang)
+membuat di bagian pemohonan validasi
+membuat tampilan tabel di status validasi
+isi tampilan tabel (nomor validasi, NOPPBB, userid, nama pemohon, nama wajib pajak, alamat objek pajak,atas nama, tanggal validasi)
+setelah no validasi didapatkan, akan diinputkan kedalam tabel di ppatk_bookingsspd
+LAMAN STATUS PPAT
+di laman status validasi di buat no.validasi angka huruf(generate acak)
+LAMAN Permohonan Validasi
+
+belum selesai bagian view document
+    ========================================================
+    dan ini endpoint pelengkap dan berlanjutnya seharusnya case disini selain PAT atau ppat dan PATS atau ppats, memiliki format genarate yang sama yaitu 01, jadi PAT01, LTB01, A01 dan case lainnya. tapi setelah saya coba 
+
+bagian permohonan validasi yang akan di highlight sebagai dokumen nantinya diganti dari nomer validasi menjadi nop PBB
+
+
+LTB Online
+Input nobooking, buat no registrasi
+4 digit tahun + A (untuk loket offline)/ O (untuk online) + urut (5 digit)
+no registrasi xxxx + O + xxxxx1
+
+peneliti
+Input No STPD 
+tahun dan urut
+kode ini akan mengirimkan sspd
+=================================
+TAMBAH -ppatk Input baru (nama + gelar) didalam profile
+-TAMBAH user baru dengan nama penelitiValidasi PV01 dan customer service CS01
+-nomer validasi dimasukan didalam user baru PV bukan di ppatk pv01 "validasi"
+-di ppatk "permohonan Validasi" hanya menyimpan tanpa mengenearete kode validasi
+
+-di cs01 bikin menu baru "REferensi user"
+
+
+=============================================
+tambah di ppatk_bookingsspd
+generate tanggal dari manual menjadi otomatis
+hint sinkronisasi (nomer kode perolehan)
+01 = jual beli NPOPTK (80 juta)
+02 = Tukar Menukar ()
+03 = Hibah
+04 = Hibah Wasiat
+05 = Waris
+06 = Pemasukan dalam Perseroan / Badan Hukum Lainnya
+07 = Pemisahan Hak yang mengakibatkan Peralihan
+08 = Penunjukan Pembeli dalam Lelang
+09 = Pelaksanaan Putusan Hakim yang mempunyai kekuatan hukum tetap
+10 = Penggabungan Usaha
+11 = Peleburan Usaha
+12 = Pemekaran Usaha
+13 = Hadiah
+14 = Perolehan Rumah Bersubsidi
+15 = Perolehan rumah subsidi SE-26/2009
+21 = Pemberian Hak Baru sebagai Kelanjutan Pelepasan Hak
+22 = Pemberian Hak Baru diluar Pelepasan Hak
+23 = JUAL BELI DIBAWAH 2011
+24 = WARIS DI BAWAH TH 2011
+25 = PERUMAHAN BERSUBSIDI DIBAWAH 2011
+26 = PERUMAHAN BERSUBSIDI 50jt
+27 = JUAL BELI 1997-2001 sept
+28 = nopotkp 40 jt
+29 = NPOPOTP 49jt
+30 = Hibah dibawah th 2011
+31 = pemenang lelang dibawah thn 2011
+32 = Subsidi Rumah Sederhana Sehat
+33 = JUAL BELI 2001 OKTOBER SD 2005
+34 = BEBAS berdasarkan UU NO 28 2009
+35 = PERJANJIAN PENGIKAT JUAL BELI
+tambah (no. sertifikat, no. surat keputusan, tanggal surat keputusan dan strata title) di form ppatk besok di munculin berbarengan dengan yang lain
+
+
+di ltb kita tambahkan fungsi pdfkit baru untuk mengambil data pengirim
+
+PENAMBAHAN DI PROFILE SIGN KHUSUS PENELITI
+-booking ppatk, pada bagian dropdown ditambahkan input noppbb, untuk generate formulir baru isinya "formulir permohonan Validasi"
+-hapus sub menu permohonan validasi
+-buat 2 formulir baru "formulir permohonan Validasi" dan "hasil bukti validasi"
+
+-- CATATAN BARU --
+-ngerjain peneliti Validasi
+-rancangan warna
+-buat shortcut yang benar untuk setiap menu dan sub menu
+- ubah jalur di lsb dari peneliti sebelumnya menjadi peneliti validasi
+- perbaiki pdfkit untuk peneliti validasi dan menambahkan point point dari database ke dalam pdfkit
+
+-buat alur tanda tangan baru di ppatk 
+- penyelesaian peneliti validasi
+- buat alur tanda tangan blob menjadi penyimpanan biasa
+beres

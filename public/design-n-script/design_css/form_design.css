@@ -1,0 +1,625 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+#nilaiPerolehanObjekPajakTidakKenaPajak, #bphtb_yangtelah_dibayar{
+  font-family: 'Montserrat', sans-serif;
+}
+.form-control-static{
+  margin-left: 10px;
+}
+.tanggal-display {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    margin-top: 5px;
+    max-width: 160px;
+}
+.tanggal-display span {
+    margin: 0 5px;
+    font-weight: bold;
+}
+/**/
+.judul-form {
+  width: 100%;
+  padding: 12px 0;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  border-top: 2px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
+  position: relative;
+}
+
+/* Optional: Tambahkan garis tebal di bawah */
+.judul-form::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+/**/
+.simbol {
+    font-size: 2em;
+    color: black;
+}
+/* Baris form */
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  /* Group tanggal (sebelah kiri) */
+  .tanggal-group {
+    flex: 1;
+    max-width: 250px;
+  }
+  
+  /* Group no booking (sebelah kanan) */
+  .booking-group {
+    width: 250px;
+    text-align: right;
+  }
+  .booking-group label {
+    margin-right:150px;
+  }
+  
+  /* Label style */
+  .tanggal-group label,
+  .booking-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Input no booking */
+  .booking-group input[type="text"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    text-align: right;
+  }
+  
+  /* Container input tanggal */
+  .tanggal-inputs, .tanggal_oleh-inputs, .tanggal_bayar-inputs {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* Input tanggal */
+  .tanggal-inputs input[type="number"], .tanggal_oleh-inputs input[type="number"],
+   .tanggal_bayar-inputs input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 60px;
+    text-align: center;
+  }
+  
+  /* Hover dan focus state */
+  input:not([readonly]):hover {
+    border-color: #aaa;
+  }
+  
+  input:not([readonly]):focus {
+    outline: none;
+    border-color: #4285f4;
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+  }
+/* Style untuk container NOP PBB */
+.nop-pbb-inputs, .npwp-inputs {
+    display: flex;
+    align-items: center;
+    gap: 3px; /* Jarak lebih rapat */
+    flex-wrap: wrap; /* Jika tidak muat bisa turun ke bawah */
+  }
+  
+  /* Style untuk input NOP PBB */
+  .nop-pbb-inputs input[type="number"], .npwp-inputs input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    /* Lebar disesuaikan dengan kebutuhan digit */
+    width: 70px;  /* Untuk 2 digit */
+  }
+  
+  .nop-pbb-inputs input[placeholder*="(3)"], .npwp-inputs input[placeholder*="(3)"] {
+    width: 60px;  /* Lebih lebar untuk 3 digit */
+  }
+  
+  .nop-pbb-inputs input[placeholder*="(4)"], .npwp-inputs input[placeholder*="(4)"] {
+    width: 70px;  /* Lebih lebar lagi untuk 4 digit */
+  }
+  
+  .nop-pbb-inputs input[readonly] {
+    width: 40px;  /* Lebih sempit untuk yang readonly */
+    background-color: #f5f5f5;
+  }
+  
+  /* Style untuk pemisah */
+  .nop-pbb-inputs span {
+    color: #666;
+    margin: 0 2px;
+  }
+  
+  /* Responsive untuk layar kecil */
+  @media (max-width: 768px) {
+    .nop-pbb-inputs {
+      gap: 5px;
+    }
+    .nop-pbb-inputs input[type="number"] {
+      width: 40px;
+      padding: 6px;
+    }
+  }
+/**/
+.large-input {
+    width: 100%;
+    min-height: 100px;
+    padding: 8px 12px;
+    font-family: 'Montserrat', sans-serif; /* Pastikan font konsisten */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    box-sizing: border-box;
+    overflow-y: auto;
+    word-wrap: break-word;
+    line-height: 1.5;
+    color: #333; /* Warna teks yang konsisten */
+}
+.two-column-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 kolom dengan lebar sama */
+    gap: 10px; /* Jarak antar kolom */
+}
+
+.three-column-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 2 kolom dengan lebar sama */
+    gap: 10px; /* Jarak antar kolom */
+}
+.three-column-form-this {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* 2 kolom dengan lebar sama */
+    gap: 10px; /* Jarak antar kolom */
+}
+.four-column-form {
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr; /* 2 kolom dengan lebar sama */
+    gap: 10px; /* Jarak antar kolom */
+}
+.five-column-form {
+  margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    align-items: center;
+}
+
+.nine-column-form {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 2 kolom dengan lebar sama */
+    gap: 10px; /* Jarak antar kolom */
+}
+/* Style Kode Camat */
+.kodecamat-input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.kodecamat-input input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    width: 60px; /* Lebar default */
+}
+.kodecamat-input input[placeholder="kabkot (51)"] {
+    width: 80px; /* Lebih lebar untuk kode kab/kota */
+}
+.kodecamat-input span {
+    color: #666;
+    font-weight: bold;
+}
+#tahunajb {
+  text-align: center;
+}
+#npwpwp {
+  width: 250px;
+}
+/* Style Umum */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.form-group input:not([type="number"]) {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.short-input {
+    max-width: 150px;
+}
+/**/
+.custom-grid-form {
+    display: grid;
+    grid-template-areas:
+        "col2 col2"
+        "col3 col3 col3";
+    gap: 15px;
+}
+
+.double-col {
+    grid-column: span 1;
+}
+
+.triple-col {
+    grid-column: span 1;
+}
+
+/* Atur lebar kolom */
+@media (min-width: 768px) {
+    .custom-grid-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .triple-col {
+        grid-column: span 1;
+    }
+}
+
+/* Style dasar */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+/* Style dasar */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.short-input {
+  width: 100%;
+  max-width: 100px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .address-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .col-2, .col-3 {
+    grid-column: span 1;
+  }
+}
+
+/**/
+  .sejajar {
+    margin-top: -40px;
+    margin-bottom: 5px;
+    padding: 12px;
+    background-color: transparent;
+    border-radius: 5px;
+  }
+/**/
+/**//**/
+  .elegant-select {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.elegant-select label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2d3748;
+    transition: all 0.3s ease;
+}
+
+.elegant-select select {
+    width: 60%;
+    padding: 8px 8px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: #4a5568;
+    background-color: #fff;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom dropdown arrow */
+.elegant-select::after {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #718096;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effects */
+.elegant-select select:hover {
+    border-color: #cbd5e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus effects */
+.elegant-select select:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* Active state (when clicked) */
+.elegant-select select:active {
+    transform: scale(0.98);
+}
+
+/* Transition when opened */
+.elegant-select select:focus::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Disabled state */
+.elegant-select select:disabled {
+    background-color: #f7fafc;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .elegant-select select {
+        padding: 10px 14px;
+    }
+}
+/**/
+  .form-row {
+    display: flex;
+    gap: 10px;
+  }
+  .margin-toup {
+    margin-top: -20px;
+  }
+  
+  .form-group.horizontal {
+    flex: 1;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif; /* Pastikan font konsisten */
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* Pastikan font konsisten */
+  }
+  
+  .input-hint {
+    margin-top: 5px;
+    font-size: 0.8em;
+    color: #b1c9d8;
+    font-style: italic;
+  }
+
+/**//**//**/
+/* Container utama */
+.container-dropdown-tambah {
+  display: flex;
+  gap: 20px;
+}
+
+/* Setiap item dropdown */
+.dropdown-item-tambah {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Bagian judul yang bisa diklik */
+.dropdown-header-tambah {
+  background: #2c3e50;
+  color: white;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Isi dropdown yang awalnya tersembunyi */
+.dropdown-content-tambah {
+  max-height: 0;
+  overflow: hidden;
+  background: white;
+  transition: max-height 0.3s ease;
+}
+
+/* Ketika dropdown aktif (terbuka) */
+.dropdown-content-tambah.active {
+  max-height: none;
+  height: auto;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-top: none;
+  overflow-y: visible;
+}
+
+/* Untuk tampilan mobile */
+@media (max-width: 768px) {
+  .container-dropdown {
+    flex-direction: column;
+  }
+}
+/**/
+/**//**/
+.button-container {
+  display: flex;
+  justify-content: center; /* Pusatkan horizontal */
+  margin: 30px 0; /* Jarak dari elemen atas/bawah */
+  width: 100%;
+}
+
+.submit-button {
+  padding: 12px 24px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #34495e;
+}
+/**//**/
+:root {
+    --primary-blue: #1a365d;
+    --secondary-blue: #2b6cb0;
+    --accent-gold: #d4af37;
+    --danger-red: #e53e3e;
+    --success-green: #38a169;
+}
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-action i {
+    font-size: 16px;
+}
+/* TAMBAH BUTTON */
+.btn-action.tambah {
+    background: linear-gradient(135deg, var(--success-green) 0%, #2f855a 100%);
+}
+.btn-action.tambah:hover {
+    background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(56, 161, 105, 0.2);
+}
+/* SIGNATURE BUTTON */
+.btn-action.signature {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, #2c5282 100%);
+}
+.btn-action.signature:hover {
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(26, 54, 93, 0.2);
+}
+/* VIEW PDF BUTTON */
+.btn-action.viewpdf {
+    background: linear-gradient(135deg, var(--danger-red) 0%, #c53030 100%);
+}
+.btn-action.viewpdf:hover {
+    background: linear-gradient(135deg, #c53030 0%, #9b2c2c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(229, 62, 62, 0.2);
+}
+/* HAPUS BUTTON */
+.btn-action.hapus {
+    background: linear-gradient(135deg, #718096 0%, #4a5568 100%);
+}
+.btn-action.hapus:hover {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(113, 128, 150, 0.2);
+}
+/* ACTIVE STATE */
+.btn-action:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* FONT AWESOME FALLBACK */
+@supports (font-variation-settings: normal) {
+    .btn-action i {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+}
+/* Style Form Awalnya Tersembunyi */
+.hidden-form {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Style Form Ketika Ditampilkan */
+.hidden-form.visible {
+  display: block;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

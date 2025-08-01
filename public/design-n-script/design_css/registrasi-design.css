@@ -1,0 +1,416 @@
+    /* Menyembunyikan spinner di browser Chrome dan Safari */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+/* Styling dasar untuk SVG */
+svg {
+    z-index: 3;
+    width: 100%;
+    height: 20px;
+    display: block;
+    position: fixed;
+    bottom: 10px; /* Tempatkan di bagian bawah halaman */
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: visible;
+}
+
+/* Animasi mobil bergerak ke kanan */
+.car {
+    animation: drive 10s linear infinite; /* Maju dari kiri ke kanan */
+}
+
+/* Efek ilusi roda berputar dengan perubahan warna */
+.wheel {
+    animation: wheelSpin 0.3s linear infinite;
+}
+
+/* Bayangan roda untuk memberikan kedalaman */
+.wheel-shadow {
+    fill: rgba(0, 0, 0, 0.2);
+    transform-origin: center;
+    animation: wheelSpin 0.3s linear infinite;
+}
+
+/* Lampu depan yang berkedip */
+.headlight {
+    animation: blink 1s ease-in-out infinite alternate;
+}
+
+/* Efek jalanan */
+.road-line {
+    stroke: #ccc;
+    stroke-width: 2;
+    stroke-dasharray: 20 10; /* Panjang garis dan jarak antar garis */
+    animation: roadMove 2s linear infinite;
+}
+
+/* Efek lampu depan (headlamp) */
+.headlamp {
+    fill: rgba(255, 255, 153, 0.3); /* Warna kuning pudar untuk efek cahaya */
+    animation: headlampExpand 5s linear forwards;
+}
+
+/* Keyframes untuk mobil bergerak */
+@keyframes drive {
+    0% { transform: translateX(-400%); } /* Mulai dari luar layar kiri */
+    100% { transform: translateX(500%); } /* Bergerak hingga luar layar kanan */
+}
+
+/* Keyframes untuk ilusi roda berputar */
+@keyframes wheelSpin {
+    0% { fill: #333; }
+    25% { fill: #555; }
+    50% { fill: #333; }
+    75% { fill: #111; }
+    100% { fill: #333; }
+}
+
+/* Keyframes untuk lampu depan berkedip */
+@keyframes blink {
+    0% { fill: #ffffcc; }
+    100% { fill: #ffff66; }
+}
+
+/* Keyframes untuk efek jalanan */
+@keyframes roadMove {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -40; } /* Geser sepanjang garis putus-putus */
+}
+
+/* Keyframes untuk headlamp yang melebar */
+@keyframes headlampExpand {
+    0% { transform: scaleX(1); opacity: 0.5; }
+    100% { transform: scaleX(3); opacity: 0; }
+}
+
+/* Perubahan warna mobil untuk efek kilauan */
+.car-body {
+    animation: carColorChange 5s linear infinite;
+}
+
+@keyframes carColorChange {
+    0%, 100% { fill: #007bff; }
+    50% { fill: #005bb5; }
+}
+
+footer.foot {
+background-color: #111;
+height: 15px;
+width: 100%;
+position: fixed; /* Tetap di bagian bawah layar */
+bottom: 0;
+left: 0;
+z-index: -1;
+color: white;
+text-align: center;
+line-height: 30px;
+}
+/**/
+/**/
+/**/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+/* Background image */
+/* Background image */
+body {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('/asset/regist_bg.png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+body::after {
+    content: "";
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.1) 70%);
+    background-size: 200% 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    animation: gradientMove 10s infinite alternate ease-in-out;
+}
+/* Animasi untuk background gradient */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Efek kilauan */
+@keyframes sparkle {
+    0% { opacity: 0.3; transform: scale(0.9); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+    100% { opacity: 0.3; transform: scale(0.9); }
+}
+
+/* Sparkling effect */
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: sparkle 2s infinite;
+    z-index: 2;
+}
+
+/* Menyebar sparkling pada background */
+.sparkle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.sparkle:nth-child(2) { top: 30%; left: 80%; animation-delay: 1s; }
+.sparkle:nth-child(3) { top: 50%; left: 40%; animation-delay: 0.5s; }
+.sparkle:nth-child(4) { top: 70%; left: 60%; animation-delay: 1.5s; }
+.sparkle:nth-child(5) { top: 85%; left: 20%; animation-delay: 0.7s; }
+
+
+.container{
+    z-index: 2;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+h1 {
+    background: rgba(0, 0, 0, 0.3);
+    color: whitesmoke;
+    text-align: center;
+    padding: 22px;
+    border: 1px solid white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    font-size: 24px;
+
+}
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+.form-group i {
+    position: absolute;
+    width: 40px;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+    color: #8F8F8F;
+}
+
+.form-group input[type="text"],  .form-group input[type="number"],.form-group input[type="password"], .form-group input[type="email"] {
+    width: 100%;
+    padding: 10px 10px 10px 30px;
+    border: none;
+    border-bottom: 1px solid #AAAAAA;
+    background: transparent;
+    color: #000;
+    font-size: 16px;
+    outline: none;
+}
+.form-group input::placeholder {
+    color: #aca1a1;
+}
+.form-column small {
+    margin-bottom: 30px;
+    white-space: nowrap;
+    display: block;
+    margin-top: 5px;
+    color: #353535;
+}
+/* Untuk Chrome, Safari, Edge, dan Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/**/
+.form-group .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.form-group .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/**/
+.form-group.recaptcha {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    margin-left: 60px;
+    width: fit-content;
+}
+
+/* Styling untuk checkbox */
+.form-group.recaptcha input[type="checkbox"] {
+    accent-color: #007bff;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Styling untuk label */
+.form-group.recaptcha label {
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Styling untuk gambar reCAPTCHA */
+.captcha-logo {
+    width: 100px;
+    height: 100px;
+}
+.recaptcha-image img {
+    width: 80px; /* Sesuaikan ukuran gambar */
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Hover effect pada checkbox dan label */
+.form-group.recaptcha:hover {
+    background:#F2F2F2;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+/**/
+.form-group .file-input {
+    display: flex;
+    align-items: center;
+}
+.form-group .file-input input[type="file"] {
+    flex: 1;
+    border: 0.5px solid black;
+    border-radius: 5px;
+}
+.form-group .file-input button {
+    padding: 15px;
+    background: #ccc;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+/**/
+.form-group .cancel {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #ccc;
+}
+.form-group .submit {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #00A99D;
+    color: #fff;
+}
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+.form-column {
+    width: 48%;
+}
+.form-group small{
+    cursor: pointer;
+    display: flex;
+    white-space: nowrap;
+    margin-bottom: 10px;
+    margin-top: -2px;
+}
+.form-group .file-input {
+    gap: 20px;
+}
+/**/
+/**/
+.error-message {
+    position: relative;
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: -5px;
+    display: none;
+}
+.submit:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+/**/
+/**/
+ /* Style for the overlay background */
+ .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for the modal content */
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    position: relative;
+}
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+/* Style for the guide image */
+.guide-image {
+    max-width: 100%;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+}
+/**/
+/**/
+#otp-modal {
+    display: none;
+}

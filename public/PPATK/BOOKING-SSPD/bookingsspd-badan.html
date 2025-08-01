@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PPATK Dashboard|BAPPENDA</title>
+  <link rel="icon" href="/asset/TitleE-bphtb.png" type="image/png">
+    <!---->
+  <link rel="stylesheet" href="/design-n-script/design_css/asset_pelengkap.css">
+    <!---->
+    <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/design_dashboard.css">
+    <!---->
+    <link rel="stylesheet" href="../../design-n-script/design_css/form_design.css">
+    <link rel="stylesheet" href="../../design-n-script/design_css/design_table/tabel_ppatksspd.css">
+    <link rel="stylesheet" href="../../design-n-script/design_css/design_table/table_design.css">
+    <!---->
+  <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/header_design.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/design_sidebar.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/design_text/design_text.css">
+    <!---->
+    <link id="favicon" rel="icon" href="path/to/favicon.ico">
+
+<script>
+    
+</script>
+</head>
+<body>
+  <!-- Header Section -->
+<header>
+  <div class="header-left">
+      <div class="logo-container">
+          <img src="/asset/Logo_image.svg" alt="Logo" class="logo">
+      </div>
+      <div id="kabupaten-bogor">
+          <div class="teks-container">
+              <span class="large-text">Bappenda</span>
+              <span class="small-text">Kabupaten Bogor</span>
+          </div>
+          <!-- Gambar dekorasi di sebelah kanan -->
+          <img src="/asset/dekorasi_icon.png" alt="Dekorasi" class="dekorasi-image">
+      </div>            
+      <!-- Header Title -->
+      <div class="header-title">Booking SSPD Badan</div>
+  </div>
+          
+  <div class="header-right">
+  <!--profile section-->
+  <div class="profile-pic-container">
+    <img src="" alt="Profile" class="fotoprofil profile-pic">
+    <div id="profile-overlay" class="profile-overlay">
+        <div class="overlay-content">
+            <img src="" alt="Profile Picture" class="fotoprofil overlay-profile-pic" width="30">
+            <div class="profile-info">
+                <h4><span class="nama">Load</span></h4>
+                <p><span class="userid">Load</span></p>
+            </div>
+            <div class="overlay-buttons">
+                <a href="/profile.html"><button class="profile-btn" id="profileButton" class="profile-button">Profil</button></a>
+                <button class="AUT logout-button">Keluar</button>
+            </div>
+        </div>
+    </div>
+  </div>  
+
+    <!--member section-->        
+    <div class="members-count" id="divisiMemberCount">
+        <span id="thin-text">member</span> <br>
+        <div class="member-overlay" id="member-overlay">
+            <ul class="member-list" id="member-list">
+            <!-- Member list will be populated here -->
+            </ul>
+        </div>
+    </div>
+</div>
+</header>
+<!--end header-->
+<!---->
+<!---->
+<!--start aside-->
+<aside class="sidebar">
+  <div class="menu-container">
+    <div class="box">
+        <div class="menu-item" id="dashboard_page">
+            <a href="../../ppatk-dashboard.html" class="icon-text-wrapper">
+                <i class="fa fa-home sidebar-icon"></i>
+                <span class="sidebar-text">Dashboard</span>
+            </a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-address-book sidebar-icon"></i>
+                <span class="sidebar-text">Booking SSPD</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="bookingsspd-badan.html">Booking SSPD Badan</a>
+            <a href="bookingsspd-perorangan.html">Booking SSPD Perorangan</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-check-circle sidebar-icon"></i>
+                <span class="sidebar-text">Validasi BPHTB</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="../Monitoring_SSPD/permohonan_validasi.html">Permohonan Validasi SSPD</a>
+            <a href="../Monitoring_SSPD/Status_validasi.html">Status Validasi</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown laporan-bulanan" data-dropdown="true">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-folder-open sidebar-icon"></i>
+                <span class="sidebar-text">Laporan Bulanan PPAT</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="">Input Akta</a>
+            <a href="">Laporan Rekap PPAT</a>
+            <a href="">Monitoring Keterlambatan</a>
+            <a href="">Rincian Laporan Bulanan PPAT</a>
+        </div>
+    </div>
+<!--other section must be on all html-->
+  <div class="box">
+      <div class="menu-item" id="faq_page">
+          <a href="#faqpge" class="icon-text-wrapper">
+              <i class="fa fa-question-circle sidebar-icon"></i>
+              <span class="sidebar-text">FAQ</span>
+          </a>
+      </div>
+  </div>
+  <div class="AUT logout-box">
+      <div class="menu-item" id="logout_page" style="cursor: pointer;">
+          <div href="#logout" class="icon-text-wrapper">
+              <i class="fa fa-sign-out sidebar-icon"></i>
+              <span class="sidebar-text">Log Out</span>
+          </div>
+      </div>
+  </div>
+  </div>
+</aside>
+<!-- End content aside-->
+  <!---->
+  <!---->
+
+
+  <!-- MAIN -->
+  <main class="main-content">
+        <div class="action-buttons">
+            <button class="btn-action tambah" onclick="toggleForm()">
+                <i class="fas fa-plus-circle"></i> Tambah Data
+            </button>
+            <button id="showSignatureModal" class="btn-action signature">
+                <i class="fas fa-signature"></i> Tambah Tanda Tangan
+            </button>
+            <button class="btn-action upload-docs" onclick="showDocumentUploadModal()">
+                <i class="fas fa-upload"></i> Upload Semua Dokumen
+            </button>
+            <button class="btn-action viewpdf" onclick="viewDocument()">
+                <i class="fas fa-file-pdf"></i> Lihat Dokumen
+            </button>
+            <button class="btn-action hapus">
+                <i class="fas fa-trash-alt"></i> Hapus Data
+            </button>
+        </div>
+
+<!-- Modal Overlay -->
+<div id="signatureModal" class="signature-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Upload Tanda Tangan</h3>
+      <button id="closeModalBtn" class="close-btn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="modal-body">
+      <div class="signature-upload-section">
+        <div class="signature-upload">
+          <h4>Penandatangan Wajib Pajak (Opsional)</h4>
+          <div class="upload-container">
+            <label for="signature1" class="upload-label">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span>Pilih File Tanda Tangan</span>
+              <input type="file" id="signature1" accept="image/*" class="file-input">
+            </label>
+            <div id="preview1" class="signature-preview">
+              <img id="previewImage1" class="preview-image">
+              <button class="clear-btn"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="signature-upload">
+          <h4>Penandatangan PPATK</h4>
+          <div class="upload-container">
+            <label for="signature2" class="upload-label">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <span>Pilih File Tanda Tangan</span>
+              <input type="file" id="signature2" accept="image/*" class="file-input">
+            </label>
+            <div id="preview2" class="signature-preview">
+              <img id="previewImage2" class="preview-image">
+              <button class="clear-btn"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="file-requirements">
+        <p><i class="fas fa-info-circle"></i> Format file: JPG/PNG (maks. 2MB)</p>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <button id="cancelUploadBtn" class="btn-secondary">
+        <i class="fas fa-times"></i> Batal
+      </button>
+      <button id="uploadttd" class="btn-primary">
+        <i class="fas fa-upload"></i> Upload Tanda Tangan
+        <span id="modalLoadingIndicator" class="loading-indicator">
+          <i class="fas fa-spinner fa-spin"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Document Upload Modal -->
+<div id="documentUploadModal" class="signature-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Upload Dokumen</h3>
+            <button id="closeDocModalBtn" class="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="modal-body">
+            <div class="document-upload-section">
+                <div class="booking-selection">
+                    <h4>Pilih Booking (Opsional)</h4>
+                    <select id="bookingSelect" class="booking-select">
+                        <option value="">-- Pilih Booking (Opsional) --</option>
+                    </select>
+                    <small class="booking-hint">
+                        <i class="fas fa-info-circle"></i>
+                        Pilih booking untuk mengaitkan dokumen dengan data booking tertentu
+                    </small>
+                </div>
+                
+                <div class="document-upload">
+                    <h4>Dokumen Wajib</h4>
+                    <div class="upload-container">
+                        <label for="document1" class="upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Pilih File Dokumen</span>
+                            <input type="file" id="document1" accept=".pdf,.jpg,.jpeg,.png" class="file-input">
+                        </label>
+                        <div id="docPreview1" class="document-preview">
+                            <img id="docPreviewImage1" class="preview-image">
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="document-upload">
+                    <h4>Dokumen Tambahan (Opsional)</h4>
+                    <div class="upload-container">
+                        <label for="document2" class="upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Pilih File Dokumen</span>
+                            <input type="file" id="document2" accept=".pdf,.jpg,.jpeg,.png" class="file-input">
+                        </label>
+                        <div id="docPreview2" class="document-preview">
+                            <img id="docPreviewImage2" class="preview-image">
+                            <button class="clear-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="file-requirements">
+                <p><i class="fas fa-info-circle"></i> Format file: PDF, JPG, PNG (maks. 5MB)</p>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button id="cancelDocUploadBtn" class="btn-secondary">
+                <i class="fas fa-times"></i> Batal
+            </button>
+            <button id="uploadDocs" class="btn-primary">
+                <i class="fas fa-upload"></i> Upload Dokumen
+                <span id="docModalLoadingIndicator" class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Indicator (untuk fungsi toggleLoading) -->
+<div id="loadingIndicator" style="display:none; margin-left:10px;">
+  <i class="fas fa-spinner fa-spin"></i> Memproses...
+</div>
+
+<!----->
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||\--->
+    <form id="formBadanUsaha_Bphtb" class="hidden-form">                
+        <div class="form-row">
+            <div class="tanggal-group">
+                <label>Tanggal (DD-MM-YYYY)</label>
+                <div class="tanggal-display" id="tanggalDisplay"></div>
+                <!-- Input hidden untuk form submission -->
+                <input type="hidden" id="tanggal" name="tanggal">
+                <input type="hidden" id="bulan" name="bulan">
+                <input type="hidden" id="tahun" name="tahun">
+            </div>
+            <div class="booking-group">
+            <label for="noBooking">No Booking</label>
+            <input type="text" id="noBooking" name="noBooking" placeholder="Akan tergenerate otomatis" readonly>
+            </div>
+        </div>
+        <div class="judul-form"> Pembayar Pajak BPHTB </div>
+        <div class="form-group">
+            <label for="nopPBB">NOP PBB</label>
+            <div class="nop-pbb-inputs" name="nopPBB">
+              <input type="number" id="digitprovinsi" name="nopPBB" placeholder="xx" maxlength="2" data-digits="2" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="digitkabupatenkota" name="nopPBB" placeholder="xx" maxlength="2" data-digits="2" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="digitkecamatan" name="nopPBB" placeholder="xxx" maxlength="3" data-digits="3" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="digitkpp" name="nopPBB" placeholder="xxx" maxlength="3" data-digits="3" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="digitblok" name="nopPBB" placeholder="xxx" maxlength="3" data-digits="3" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="digiturut" name="nopPBB" placeholder="xxxx" maxlength="4" data-digits="4" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="digitpajak" name="nopPBB" placeholder="x" maxlength="1" data-digits="1" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="namawajibpajak">Nama Wajib Pajak</label>
+            <input type="text" id="namawajibpajak" name="namawajibpajak" placeholder="nama wajib pajak" required>
+        </div>
+        <label for="alamatwajibpajak">Alamat Wajib Pajak</label>
+        <textarea id="alamatwajibpajak" name="alamatwajibpajak" class="large-input" required placeholder="Jl. Contoh No. 123"></textarea>
+
+        <div class="three-column-form">
+            <div class="form-group">
+                <label for="kabupatenkotawp">Kabupaten / Kota Wajib Pajak</label>
+                <input type="text" id="kabupatenkotawp" name="kabupatenkotawp" placeholder="xxx" required>
+            </div>
+            <div class="form-group">
+                <label for="kecamatanwp">Kecamatan Wajib Pajak</label>
+                <input type="text" id="kecamatanwp" name="kecamatanwp" placeholder="xxx" required>
+            </div>
+            <div class="form-group">
+                <label for="kelurahandesawp">Kelurahan / Desa Wajib Pajak</label>
+                <input type="text" id="kelurahandesawp" name="kelurahandesawp" placeholder="xxx" required>
+            </div>
+        </div>        
+        <div class="four-column-form">
+            <div class="form-group">
+                <label for="rtrwwp">RT / RW Wajib Pajak</label>
+                <input type="text" id="rtrwwp" name="rtrwwp" placeholder="001/001" class="short-input" required>
+            </div>
+        <div class="form-group">
+            <label for="tahunajb">Tahun AJB</label>
+            <input type="number" id="tahunajb" name="tahunajb" placeholder="xxxx" class="short-input" maxlength="4" required>
+        </div>
+        <div class="form-group">
+            <label for="kodeposwp">Kode Pos</label>
+            <input type="text" id="kodeposwp" name="kodeposwp" placeholder="11111" class="short-input" required>
+        </div>
+    </div>
+        <div class="form-group">
+            <label for="npwpwp">No. NPWP</label>
+            <div class="npwp-inputs" name="npwpwp">
+              <input type="number" id="unik1wp" name="npwpwp" placeholder="xx" maxlength="2" data-digits="2" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="unik2wp" name="npwpwp" placeholder="xxx" maxlength="3" data-digits="3" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="unik3wp" name="npwpwp" placeholder="xxx" maxlength="3" data-digits="3" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="unik4wp" name="npwpwp" placeholder="x" maxlength="1" data-digits="1" required>
+              <span class="simbol" style="color: black;">-</span>
+              <input type="number" id="kppwp" name="npwpwp" placeholder="xxx" maxlength="3" data-digits="3" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="pusatcwp" name="npwpwp" placeholder="xxx" maxlength="3" data-digits="3" required>
+            </div>
+        </div>
+
+    <!----------------------------------->
+        <div class="judul-form"> Pemilik Objek Pajak BPHTB </div>
+        <div class="form-group">
+        <label for="namapemilikobjekpajak">Nama Pemilik Objek Pajak</label>
+        <input type="text" id="namapemilikobjekpajak" name="namapemilikobjekpajak" placeholder="Nama Pemilik Objek Pajak" required>
+        </div>
+
+        <label for="alamatpemilikobjekpajak">Alamat Pemilik Objek Pajak</label>
+        <textarea id="alamatpemilikobjekpajak" name="alamatpemilikobjekpajak" class="large-input" required placeholder="Jl. Contoh No. 456"></textarea>
+        <div class="three-column-form">
+        <div class="form-group">
+                <label for="kabupatenkotaop">Kabupaten/Kota Objek Pajak</label>
+                <input type="text" id="kabupatenkotaop" required>
+            </div>
+            <div class="form-group">
+                <label for="kecamatanop">Kecamatan Objek Pajak</label>
+                <input type="text" id="kecamatanop" required>
+            </div>
+            <div class="form-group">
+                <label for="kelurahandesaop">Kelurahan/Desa Objek Pajak</label>
+                <input type="text" id="kelurahandesaop" placeholder="kelurahan" required>
+            </div>
+        </div>
+        <div class="three-column-form-this">
+            <div class="form-group">
+                <label for="npwpop">NPWP Objek Pajak</label>
+                <div class="npwp-inputs" name="npwpop">
+              <input type="number" id="unik1op" name="npwpop" placeholder="xx" maxlength="2" data-digits="2" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="unik2op" name="npwpop" placeholder="xxx" maxlength="3" data-digits="3" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="unik3op" name="npwpop" placeholder="xxx" maxlength="3" data-digits="3" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="unik4op" name="npwpop" placeholder="x" maxlength="1" data-digits="1" required>
+              <span class="simbol" style="color: black;">-</span>
+              <input type="number" id="kppop" name="npwpop" placeholder="xxx" maxlength="3" data-digits="3" required>
+              <span class="simbol" style="color: black;">.</span>
+              <input type="number" id="pusatcop" name="npwpop" placeholder="xxx" maxlength="3" data-digits="3" required>
+              </div>
+            </div>
+                <div class="form-group">
+                    <label for="rtrwop">RT/RW Objek Pajak</label>
+                    <input type="text" id="rtrwop" placeholder="001/001" class="short-input" required>
+                </div>
+                <div class="form-group" class="short-kodeop">
+                    <label for="kodeposop">Kode Pos</label>
+                    <input type="text" id="kodeposop" class="short-input" required>
+                </div>
+            </div>
+        </div>
+
+    <!--perhitungan otomatis-->
+        <div class="judul-form">Perhitungan NJOP</div>
+            
+        <div class="sejajar">
+            <h3>Tanah</h3>
+            <div class="form-row">
+                <div class="form-group horizontal">
+                    <label for="luas_tanah">Luas Tanah (m²):</label>
+                    <input type="number" id="luas_tanah" name="luas_tanah" min="0" step="0.01" required>
+                    <p class="input-hint">contoh: 289.2 atau 280 (jika angkanya desimal gunakan tanda titik)</p>
+                </div>
+                <div class="form-group horizontal">
+                    <label for="njop_tanah">NJOP Tanah (Rp):</label>
+                    <input type="number" id="njop_tanah" name="njop_tanah" min="0" required>
+                    <p class="input-hint">contoh: 1500000000</p>
+                </div>
+            </div>
+            <h3 class="margin-toup">Bagian Bangunan</h3>
+            <div class="form-row">
+                <div class="form-group horizontal">
+                    <label for="luas_bangunan">Luas Bangunan (m²):</label>
+                    <input type="number" id="luas_bangunan" name="luas_bangunan" min="0" step="0.01" required>
+                    <p class="input-hint">contoh: 289.2 atau 280 (jika angkanya desimal gunakan tanda titik)</p>
+                </div>
+                <div class="form-group horizontal">
+                    <label for="njop_bangunan">NJOP Bangunan (Rp):</label>
+                    <input type="number" id="njop_bangunan" name="njop_bangunan" min="0" required>
+                    <p class="input-hint">contoh: 1500000000</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Objek Pajak -->
+    <div class="container-dropdown-tambah">
+        <!-- Bagian 1: Objek Pajak -->
+        <div class="dropdown-item-tambah">
+            <div class="dropdown-header-tambah" onclick="bukaDropdown('objek-pajak')">
+            <div class="judul">Objek Pajak BPHTB</div>
+            <span class="tanda">+</span>
+            </div>
+            <div class="dropdown-content-tambah" id="objek-pajak">
+                <div class="form-group">
+                    <label for="hargatransaksi">Harga Transaksi/Nilai Pasar</label>
+                    <input type="text" id="hargatransaksi" name="hargatransaksi" required placeholder="cont: 100000000">
+                </div>
+                <div class="form-group">
+                    <label for="letaktanahdanbangunan">Letak Tanah dan/atau Bangunan</label>
+                    <textarea id="letaktanahdanbangunan" name="letaktanahdanbangunan" class="large-input" required placeholder="Masukkan Alamat Lengkap"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="jenisperolehan">Jenis Perolehan Hak</label>
+                    <select id="jenisperolehan" name="jenisperolehan" required>
+                        <option value="">-- Pilih Jenis Perolehan Hak --</option>
+                        <option value="01">01 - Jual Beli</option>
+                        <option value="02">02 - Tukar Menukar</option>
+                        <option value="03">03 - Hibah</option>
+                        <option value="04">04 - Hibah Wasiat</option>
+                        <option value="05">05 - Waris</option>
+                        <option value="06">06 - Pemasukan dalam Perseroan / Badan Hukum</option>
+                        <option value="07">07 - Pemisahan Hak yang Mengakibatkan Peralihan</option>
+                        <option value="08">08 - Penunjukan Pembeli dalam Lelang</option>
+                        <option value="09">09 - Pelaksanaan Putusan Hakim</option>
+                        <option value="10">10 - Penggabungan Usaha</option>
+                        <option value="11">11 - Peleburan Usaha</option>
+                        <option value="12">12 - Pemekaran Usaha</option>
+                        <option value="13">13 - Hadiah</option>
+                        <option value="14">14 - Perolehan Rumah Bersubsidi</option>
+                        <option value="15">15 - Perolehan Rumah Subsidi SE-26/2009</option>
+                        <option value="21">21 - Pemberian Hak Baru (Pelepasan Hak)</option>
+                        <option value="22">22 - Pemberian Hak Baru (di luar Pelepasan Hak)</option>
+                        <option value="23">23 - Jual Beli di bawah 2011</option>
+                        <option value="24">24 - Waris di bawah tahun 2011</option>
+                        <option value="25">25 - Perumahan Bersubsidi di bawah 2011</option>
+                        <option value="26">26 - Perumahan Bersubsidi 50 juta</option>
+                        <option value="27">27 - Jual Beli 1997–2001 September</option>
+                        <option value="28">28 - NPOPTKP 40 juta</option>
+                        <option value="29">29 - NPOPTKP 49 juta</option>
+                        <option value="30">30 - Hibah di bawah tahun 2011</option>
+                        <option value="31">31 - Pemenang Lelang di bawah tahun 2011</option>
+                        <option value="32">32 - Subsidi Rumah Sederhana Sehat</option>
+                        <option value="33">33 - Jual Beli 2001 Oktober s.d. 2005</option>
+                        <option value="34">34 - Bebas berdasarkan UU No. 28 Tahun 2009</option>
+                        <option value="35">35 - Perjanjian Pengikatan Jual Beli</option>
+                    </select>
+                </div>
+
+                <div class="three-column-form">
+                    <div class="form-group elegant-select">
+                        <label for="status_kepemilikan">Status Kepemilikan</label>
+                        <select id="status_kepemilikan" name="status_kepemilikan" required>
+                            <option value="milik_pribadi">Milik Pribadi</option>
+                            <option value="milik_bersama">Milik Bersama</option>
+                            <option value="sewa">Sewa</option>
+                            <option value="hgb">Hak Guna Bangunan (HGB)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rt_rwobjekpajak">RT/RW</label>
+                        <input type="text" id="rt_rwobjekpajak" name="rt_rwobjekpajak" required placeholder="Masukkan RT/RW">
+                    </div>
+                    <div class="form-group">
+                        <label for="nomor_sertifikat">Nomor Sertifikat Tanah</label>
+                        <input type="text" id="nomor_sertifikat" name="nomor_sertifikat" required placeholder="Masukkan nomor sertifikat">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="kelurahandesalp">Kelurahan/Desa</label>
+                    <input type="text" id="kelurahandesalp" name="kelurahandesalp" required placeholder="Masukkan Kelurahan/Desa">
+                </div>
+                <div class="form-group">
+                    <label for="kecamatanlp">Kecamatan</label>
+                    <input type="text" id="kecamatanlp" name="kecamatanlp" required placeholder="Masukkan Kecamatan">
+                </div>
+                <!-- Keterangan -->
+                <div class="form-group">
+                    <label for="keterangan">Keterangan</label>
+                    <textarea id="keterangan" name="keterangan" placeholder="Masukkan keterangan tambahan (misalnya, penggunaan objek pajak)"></textarea>
+                </div>
+                <div class="two-column-form">
+                    <div class="form-group">
+                        <label for="tanggal_perolehan">Tanggal Perolehan</label>
+                            <div class="tanggal_oleh-inputs">
+                                <input type="number" id="tanggaloleh" name="tanggaloleh" placeholder="HH" min="1" max="31" maxlength="2" required>
+                                <span class="simbol" style="color: black;">-</span>
+                                <input type="number" id="bulanoleh" name="bulanoleh" placeholder="BB" min="1" max="12" maxlength="2" required>
+                                <span class="simbol" style="color: black;">-</span>
+                                <input type="number" id="tahunoleh" name="tahunoleh" placeholder="TTTT" min="1700" max="2200" maxlength="4" required>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tanggal_pembayaran">Tanggal Pembayaran</label>
+                            <div class="tanggal_oleh-inputs">
+                                <input type="number" id="tanggalbayar" name="tanggalbayar" placeholder="HH" min="1" max="31" maxlength="2" required>
+                                <span class="simbol" style="color: black;">-</span>
+                                <input type="number" id="bulanbayar" name="bulanbayar" placeholder="BB" min="1" max="12" maxlength="2" required>
+                                <span class="simbol" style="color: black;">-</span>
+                                <input type="number" id="tahunbayar" name="tahunbayar" placeholder="TTTT" min="1700" max="2200" maxlength="4" required>
+                            </div>
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <label for="nomor_bukti_pembayaran">Nomor Bukti Pembayaran</label>
+                        <input type="text" id="nomor_bukti_pembayaran" name="nomor_bukti_pembayaran" placeholder="Masukkan nomor bukti pembayaran">
+                    </div>
+            </div>
+        </div>
+
+        <!-- Bagian 2: Perhitungan Pajak -->
+        <div class="dropdown-item-tambah">
+            <div class="dropdown-header-tambah" onclick="bukaDropdown('perhitungan-pajak')">
+            <div class="judul">Perhitungan Pajak BPHTB</div>
+            <span class="tanda">+</span>
+            </div>
+            <div class="dropdown-content-tambah" id="perhitungan-pajak">
+                <!--Perhitungan Pajak BPHTB-->
+                <label for="nilaiPerolehanObjekPajakTidakKenaPajak">NPOPTKP</label>
+                <input type="number" id="nilaiPerolehanObjekPajakTidakKenaPajak" name="nilaiPerolehanObjekPajakTidakKenaPajak" placeholder="0" readonly>
+                <div id="npoptkp-display" class="form-control-static">0</div>
+
+                <label for="bphtb_yangtelah_dibayar">Bea Perolehan Hak Atas Tanah yang telah dibayar</label>
+                <input type="number" id="bphtb_yangtelah_dibayar" name="bphtb_yangtelah_dibayar" placeholder="0" required>
+            </div>
+        </div>
+    </div>
+        <div class="button-container">
+        <button type="submit" class="submit-button">Simpan Perhitungan booking dan perhitungan BPHTB</button>
+        </div>
+    </form>
+
+
+<div class="table-container">
+    <div class="table-header">
+        <h3>Daftar Badan Usaha</h3>
+        <div class="table-controls">
+            <div class="search-box">
+                <i class="search-icon">🔍</i>
+                <input type="text" placeholder="Cari data...">
+            </div>
+            <button class="refresh-btn">
+                <i class="refresh-icon">🔄</i> Refresh
+            </button>
+        </div>
+    </div>
+    
+    <div class="table-wrapper">
+        <table id="badanUsahaTable" class="luxury-table">
+            <thead>
+                <tr>
+                    <th>No Booking</th>
+                    <th>NOP PBB</th>
+                    <th>Tanggal</th>
+                    <th>Tahun AJB</th>
+                    <th>Nama Wajib Pajak</th>
+                    <th>Nama Pemilik Objek Pajak</th>
+                    <th>NPWP Wajib Pajak</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody class="data-tabel-badan" id="table-body">
+                <!-- Data akan dimuat di sini menggunakan JavaScript -->
+                <tr>
+                    <td colspan="9" class="empty-message">Memuat data...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="table-footer">
+        <div class="buttonPage">
+            <div class="list-button"></div>  <!-- Pagination buttons -->
+        </div>
+    </div>
+    </div>
+</main>
+
+
+    <!-- Tempat untuk menampilkan PDF -->
+    <div id="pdfContainer">
+        <!-- PDF akan dimuat di sini setelah tombol "View Dokumen" diklik -->
+    </div>
+    <!-- Footer berada di dalam page-wrapper -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>2024 BAPPENDA Kabupaten Bogor</p>
+        </div>
+        <div class="footer-links">
+            <a href="#ini_link_ngarah_ke_linkedin">Farras</a>
+            <a href="#ini_link_ngarah_ke_linkedin">Vendor</a>
+        </div>
+    </footer>
+</div>         
+<!-- Overlay untuk konfirmasi log-out -->
+<div id="logout-overlay" class="logout-overlay">
+    <div class="logout-confirm">
+        <div class="icon-container">
+            <i class="fas fa-exclamation"></i>
+        </div>
+        <p>Apakah anda yakin?<br><span>Keluar dari sistem?</span></p>
+        <button id="cancel-logout">Batal</button>
+        <button id="confirm-logout">Iya</button>
+    </div>
+</div>
+<!--script front-->
+<script src="../../design-n-script/script_frontback_java/fungsi-click_dropdown.js"></script>
+<script src="../../design-n-script/script_frontback_java/bookingsspd_sscriptfungsi.js">
+</script>
+    <!--script pendukung-->
+<script src="../../design-n-script/script_frontback_java/frontend_bookingsspd.js"></script>
+<script src="../../design-n-script/script_frontback_java/header_script.js"></script>
+<script src="../../design-n-script/script_frontback_java/fungsi.js"></script>
+  <!--backend-->
+<script src="../../script-backend/header-backend.js"></script>
+<script src="../../script-backend/tambah-bookingsspd-badan.js"></script>
+<script src="../../script-backend/badan-table-bookingsspd.js"></script>
+</body>
+</html>

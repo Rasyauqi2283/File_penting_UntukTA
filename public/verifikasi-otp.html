@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifikasi OTP</title>
+    <link rel="icon" href="asset/TitleE-bphtb.png">
+  <link rel="stylesheet" href="design-n-script/design_css/asset_pelengkap.css">
+  <style>
+    :root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  body {
+    overflow: hidden;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    color: var(--text-dark);
+  }
+
+  .otp-container {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .otp-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 40px;
+    position: relative;
+  }
+
+  .otp-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+  }
+
+  .otp-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .otp-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 4px 6px rgba(37, 99, 235, 0.2));
+  }
+
+  .otp-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: var(--text-dark);
+  }
+
+  .otp-header p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .otp-form {
+    margin-top: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+  }
+
+  .email-display {
+    position: relative;
+  }
+
+  .email-display input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #f8fafc;
+    font-size: 15px;
+    color: var(--text-dark);
+  }
+
+  .edit-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--primary-color);
+  }
+
+  .otp-inputs {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  .otp-inputs input {
+    width: 48px;
+    height: 56px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: white;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .otp-inputs input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    outline: none;
+    transform: translateY(-2px);
+  }
+
+  .verify-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+  }
+
+  .verify-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+  }
+
+  .verify-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .verify-btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  .otp-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--text-light);
+  }
+
+  .resend-link {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  .resend-link:hover {
+    color: var(--primary-dark);
+  }
+
+  .status-message {
+    margin-top: 12px;
+    font-size: 14px;
+    min-height: 20px;
+  }
+
+  .status-message.success {
+    color: var(--success-color);
+  }
+
+  .status-message.error {
+    color: var(--error-color);
+  }
+  </style>
+</head>
+<body>
+<div class="otp-container">
+    <div class="otp-card">
+      <div class="otp-header">
+        <img src="https://cdn-icons-png.flaticon.com/512/477/477103.png" alt="Shield Icon" class="otp-icon">
+        <h2>Verifikasi Keamanan</h2>
+        <p>Kami telah mengirimkan kode OTP 6-digit ke email Anda</p>
+      </div>
+
+      <form id="otpForm" class="otp-form">
+        <div class="form-group">
+          <label for="email">Alamat Email</label>
+          <div class="email-display">
+            <input type="email" id="email" name="email" readonly required />
+            <span class="edit-icon">✏️</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Kode Verifikasi</label>
+          <div class="otp-inputs">
+            <input type="text" maxlength="1" pattern="\d" title="Digit OTP" autofocus />
+            <input type="text" maxlength="1" pattern="\d" title="Digit OTP" />
+            <input type="text" maxlength="1" pattern="\d" title="Digit OTP" />
+            <input type="text" maxlength="1" pattern="\d" title="Digit OTP" />
+            <input type="text" maxlength="1" pattern="\d" title="Digit OTP" />
+            <input type="text" maxlength="1" pattern="\d" title="Digit OTP" />
+          </div>
+          <input type="hidden" id="otp" name="otp" required />
+        </div>
+
+        <button type="submit" class="verify-btn">
+          <span>Verifikasi Sekarang</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+
+      <div class="otp-footer">
+        <p>Tidak menerima kode? <button id="resendOtp" class="resend-link">Kirim Ulang OTP</button></p>
+        <p id="message" class="status-message"></p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Inisialisasi input OTP
+    const otpInputs = document.querySelectorAll('.otp-inputs input');
+    const hiddenOtp = document.getElementById('otp');
+    
+    // Auto-focus dan navigasi OTP
+    otpInputs.forEach((input, index) => {
+      // Handle paste OTP
+      input.addEventListener('paste', (e) => {
+        e.preventDefault();
+        const pasteData = e.clipboardData.getData('text').trim();
+        if (/^\d{6}$/.test(pasteData)) {
+          pasteData.split('').forEach((char, i) => {
+            if (otpInputs[i]) {
+              otpInputs[i].value = char;
+            }
+          });
+          updateHiddenOtp();
+          otpInputs[5].focus();
+        }
+      });
+      
+      // Handle input digit
+      input.addEventListener('input', (e) => {
+        if (input.value.length === 1) {
+          if (index < 5) {
+            otpInputs[index + 1].focus();
+          } else {
+            input.blur();
+          }
+          updateHiddenOtp();
+        }
+      });
+      
+      // Handle backspace
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !input.value && index > 0) {
+          otpInputs[index - 1].focus();
+        }
+      });
+    });
+    
+    function updateHiddenOtp() {
+      hiddenOtp.value = Array.from(otpInputs).map(input => input.value).join('');
+    }
+
+    // Kode email dari localStorage
+    const emailField = document.getElementById("email");
+    const savedEmail = localStorage.getItem("email");
+    if (savedEmail) {
+      emailField.value = savedEmail;
+    } else {
+      document.getElementById("message").innerText = "Email tidak ditemukan. Silakan registrasi ulang.";
+      document.getElementById("message").classList.add("error");
+      setTimeout(() => {
+        window.location.href = "registrasi.html";
+      }, 2000);
+    }
+  });
+
+  document.getElementById("otpForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const otp = document.getElementById("otp").value;
+    const messageEl = document.getElementById("message");
+
+    if (!/^\d{6}$/.test(otp)) {
+      messageEl.innerText = "Kode OTP harus terdiri dari 6 angka.";
+      messageEl.className = "error";
+      return;
+    }
+
+    messageEl.innerText = "Memverifikasi OTP...";
+    messageEl.className = "status-message";
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, otp })
+      });
+
+      const result = await response.json();
+      messageEl.innerText = result.message;
+
+      if (response.ok) {
+        messageEl.className = "status-message success";
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 1500);
+      } else {
+        messageEl.className = "status-message error";
+      }
+    } catch (error) {
+      messageEl.innerText = "Terjadi kesalahan: " + error.message;
+      messageEl.className = "status-message error";
+    }
+  });
+
+  document.getElementById("resendOtp").addEventListener("click", async function() {
+    const email = document.getElementById("email").value;
+    const messageEl = document.getElementById("message");
+
+    if (!email) {
+      messageEl.innerText = "Silakan isi email terlebih dahulu.";
+      messageEl.className = "status-message error";
+      return;
+    }
+
+    messageEl.innerText = "Mengirim ulang OTP...";
+    messageEl.className = "status-message";
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/resend-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
+
+      const result = await response.json();
+      messageEl.innerText = result.message;
+
+      if (response.ok) {
+        messageEl.className = "status-message success";
+      } else {
+        messageEl.className = "status-message error";
+      }
+    } catch (error) {
+      messageEl.innerText = "Gagal mengirim ulang OTP: " + error.message;
+      messageEl.className = "status-message error";
+    }
+  });
+</script>
+</body>
+</html>

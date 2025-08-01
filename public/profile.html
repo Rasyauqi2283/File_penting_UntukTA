@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile|BPHTB</title>
+    <link rel="icon" href="asset/TitleE-bphtb.png" type="image/png">
+    <link rel="stylesheet" href="design-n-script/design_css/asset_pelengkap.css">
+    <link rel="stylesheet" href="design-n-script/design_css/profile_design/profile_design.css">
+    <link rel="stylesheet" href="design-n-script/design_css/sidebar-dashboard/header_design.css">
+    <link rel="stylesheet" href="design-n-script/design_css/sidebar-dashboard/design_sidebar.css">
+    <link rel="stylesheet" href="design-n-script/design_css/design_text/design_text.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-left">
+            <div class="logo-container">
+                <img src="asset/Logo_image.svg" alt="Logo" class="logo">
+            </div>
+            <div id="kabupaten-bogor">
+                <div class="teks-container">
+                    <span class="large-text">Bappenda</span>
+                    <span class="small-text">Kabupaten Bogor</span>
+                </div>
+                <img src="asset/dekorasi_icon.png" alt="Dekorasi" class="dekorasi-image">
+            </div>            
+            <div class="header-title">Profile</div>
+        </div>
+            
+        <div class="header-right">
+            <!--profile section-->
+            <div class="profile-pic-container">
+                <img src="" alt="Profile" class="fotoprofil profile-pic">
+                <div id="profile-overlay" class="profile-overlay">
+                    <div class="overlay-content">
+                        <div class="profile-header">
+                            <img src="" alt="Profile Picture" class="fotoprofil overlay-profile-pic">
+                            <div class="profile-info">
+                                <h4><span class="nama">Load</span></h4>
+                                <p><span class="userid">Load</span></p>
+                            </div>
+                        </div>
+                        <div class="overlay-buttons">
+                            <button class="profile-btn" id="profileButton">
+                                <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" fill="currentColor"/>
+                                    <path d="M12 14C7.58172 14 4 17.5817 4 22H20C20 17.5817 16.4183 14 12 14Z" fill="currentColor"/>
+                                </svg>
+                                Profil
+                            </button>
+                            <button class="AUT logout-button">
+                                <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 16L21 12M21 12L17 8M21 12H7M13 16V17C13 18.6569 11.6569 20 10 20H6C4.34315 20 3 18.6569 3 17V7C3 5.34315 4.34315 4 6 4H10C11.6569 4 13 5.34315 13 7V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Keluar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <!--member section-->        
+            <div class="members-count" id="divisiMemberCount">
+                <span id="thin-text">member</span> <br>
+                <div class="member-overlay" id="member-overlay">
+                    <ul class="member-list" id="member-list">
+                    <!-- Member list will be populated here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div id="profile-container">
+            <button class="arrow-button left" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            
+            <h2>Profile</h2>
+            <div class="divisi-label">Divisi: <span class="divisi">load</span></div>
+
+            <div class="profile-content-wrapper">
+                <!-- Profile Picture Section -->
+                <div class="profile-picture-wrapper">
+                    <img src="/default-foto-profile.png" alt="Profile Picture" class="fotoprofil" id="profileImg" width="150" height="150">
+                    <button class="profile-btn gfot" id="ubah-foto-btn">Ubah Foto</button>
+                </div>
+
+                <!-- Profile Details Section -->
+                <div class="profile-details">
+                    <div class="profile-field">
+                        <label for="userid">User ID</label>
+                        <input type="text" class="userid" id="userid" readonly value="">
+                    </div>
+                    <div class="profile-field">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" readonly>
+                    </div>
+                    <div class="profile-field" id="nip-field">
+                        <label for="nip">NIP</label>
+                        <input type="text" id="nip" readonly>
+                    </div>
+                    <div class="profile-field" id="special_field" style="display: none;">
+                        <label for="special_field_input">Nama PPAT</label>
+                        <input type="text" id="special_field_input" readonly>
+                    </div>
+                    <div class="profile-field" id="special_ParafValidasi" style="display: none;">
+                        <label for="special_parafv">Nama Paraf Validasi</label>
+                        <input type="text" id="special_parafv" readonly>
+                    </div>
+                    <div class="profile-field">
+                        <label for="nama">Nama</label>
+                        <input type="text" class="nama" id="nama" readonly value="">
+                    </div>
+                    <div class="profile-field">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" readonly>
+                    </div>
+                    <div class="profile-field">
+                        <label for="telepon">Telepon</label>
+                        <input type="text" id="telepon" readonly>
+                    </div>
+                    <div class="profile-field">
+                        <label for="password">Katasandi</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="password" readonly>
+                            <span class="toggle-password" id="toggle-password">👁️</span>
+                        </div>
+                        <span class="change-password-link" id="change-password-link">Ubah katasandi?</span>
+                    </div>
+                    <button id="paraf-peneliti" style="display:none;">Paraf Khusus</button>
+                </div>
+            </div>
+
+            <!-- Error Display -->
+            <div id="profile-error-message" class="error-message" style="display: none;"></div>
+        </div>
+
+        <!-- Overlay Backdrop -->
+        <div class="overlay-backdrop" id="overlay-backdrop"></div> 
+
+        <!-- Password Change Overlay -->
+        <div class="password-overlay" id="password-overlay">
+            <h3>Ubah Sandi</h3>
+            <div class="password-content">
+                <div class="password-field">
+                    <label for="oldPassword">Kata Sandi (Lama)</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="oldPassword" placeholder="Masukkan kata sandi lama" required>
+                        <span class="toggle-password" id="toggle-old-password">👁️</span>
+                    </div>
+                </div>
+                <div class="password-field">
+                    <label for="newPassword">Kata Sandi (Baru)</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="newPassword" placeholder="Masukkan katasandi baru">
+                        <span class="toggle-password" id="toggle-new-password">👁️</span>
+                    </div>
+                </div>
+                <div class="password-field">
+                    <label for="confirm-password">Konfirmasi Kata Sandi</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="confirm-password" placeholder="Ulangi katasandi baru">
+                        <span class="toggle-password" id="toggle-confirm-password">👁️</span>
+                    </div>
+                </div>
+            </div>
+            <div class="password-buttons">
+                <button id="cancel-password-change">Batal</button>
+                <button id="confirm-password-change">Iya</button>
+            </div>
+        </div>
+
+        <!-- Photo Upload Overlay -->
+        <div class="photo-overlay" id="photo-overlay">
+            <div class="photo-overlay-content">
+                <h3>Ubah Foto Profil</h3>
+                
+                <div class="photo-upload-container">
+                    <form id="upload-form" enctype="multipart/form-data" class="upload-form">
+                        <div class="file-input-container">
+                            <label for="new-profile-photo" class="upload-btn">
+                                <svg viewBox="0 0 24 24" width="24" height="24" class="upload-icon">
+                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                </svg>
+                                <span>Pilih Foto</span>
+                                <input type="file" name="fotoProfil" id="new-profile-photo" accept=".jpg, .jpeg, .png" required>
+                            </label>
+                            <p class="file-requirements">Format: JPG, PNG (Maks. 5MB)</p>
+                        </div>
+                    </form>
+                    
+                    <div id="preview-container" class="preview-container">
+                        <div class="preview-placeholder" id="preview-placeholder">
+                            <svg viewBox="0 0 24 24" width="48" height="48" class="image-icon">
+                                <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.86 8.86l-3 3.87L9 13.14 6 17h12l-3.86-5.14z"/>
+                            </svg>
+                            <p id="preview-text">Tidak ada gambar terpilih</p>
+                        </div>
+                        <img id="preview-image-change" src="" alt="Preview Image" class="preview-image">
+                    </div>
+                    
+                    <div class="upload-progress">
+                        <div id="upload-progress-bar" class="progress-bar"></div>
+                        <div class="progress-text" id="progress-text"></div>
+                    </div>
+                    
+                    <div class="photo-messages">
+                        <div id="upload-error-message" class="error-message"></div>
+                        <div id="upload-success-message" class="success-message"></div>
+                    </div>
+                </div>
+                
+                <div class="photo-buttons">
+                    <button id="cancel-photo-change" class="secondary-btn">Batal</button>
+                    <button type="submit" id="save-photo-change" class="primary-btn" disabled>Simpan Perubahan</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signature Modal -->
+        <div id="parafModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Upload Tanda Tangan Digital</h3>
+                <form id="parafForm">
+                    <div class="form-group">
+                        <label for="parafImage">
+                            Pilih gambar tanda tangan (PNG/JPG, max 3MB):
+                        </label>
+                        <input type="file" id="parafImage" accept="image/png, image/jpeg" required>
+                        <div class="preview-container">
+                            <img id="parafPreview" style="max-width: 200px; display: none;">
+                            <canvas id="grayscalePreview" style="max-width: 200px; display: none;"></canvas>
+                        </div>
+                        <p>Hasil akhir akan otomatis diubah ke hitam-putih</p>
+                    </div>
+                    <button type="submit" class="btn-upload">Simpan Paraf</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <div class="blackbackground"></div>
+        <img src="" alt="Profile Picture" class="fotoprofil">
+    </div>
+        
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>2024 BAPPENDA Kabupaten Bogor</p>
+        </div>
+        <div class="footer-links">
+            <a href="#ini_link_ngarah_ke_linkedin">Farras</a>
+            <a href="#ini_link_ngarah_ke_linkedin">Vendor</a>
+        </div>
+    </footer>
+          
+    <!-- Logout Confirmation Overlay -->
+    <div id="logout-overlay" class="logout-overlay">
+        <div class="logout-confirm">
+            <div class="icon-container">
+                <i class="fas fa-exclamation"></i>
+            </div>
+            <p>Apakah anda yakin?<br><span>Keluar dari sistem?</span></p>
+            <button id="cancel-logout">Batal</button>
+            <button id="confirm-logout">Iya</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script src="design-n-script/script_frontback_java/header_script.js"></script>
+    <script src="design-n-script/script_frontback_java/profile.js"></script>
+    <script src="design-n-script/script_frontback_java/fungsi.js"></script>
+    <script src="script-backend/header-backend.js"></script>
+    <script type="module">
+        (async () => {
+            try {
+                const { ProfileController } = await import(
+                    './frontend_import/profile/profile_frontend.js'
+                );
+                
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', () => {
+                        new ProfileController();
+                    });
+                } else {
+                    new ProfileController();
+                }
+            } catch (error) {
+                console.error('Failed to initialize profile:', error);
+            }
+        })();
+    </script>
+    <script>window.APP_ENV = 'development';</script>
+</body>
+</html>
+    

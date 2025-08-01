@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PPATK Dashboard|BAPPENDA</title>
+  <link rel="icon" href="/asset/TitleE-bphtb.png" type="image/png">
+    <!---->
+  <link rel="stylesheet" href="/design-n-script/design_css/asset_pelengkap.css">
+    <!---->
+    <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/design_dashboard.css">
+    <!---->
+    <link rel="stylesheet" href="../../design-n-script/design_css/form_design.css">
+    <link rel="stylesheet" href="../../design-n-script/design_css/design_table/tabel_ppatksspd.css">
+    <link rel="stylesheet" href="../../design-n-script/design_css/design_table/table_design.css">
+    <!---->
+  <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/header_design.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/design_sidebar.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/design_text/design_text.css">
+    <!---->
+    <link id="favicon" rel="icon" href="path/to/favicon.ico">
+
+
+</head>
+<body>
+  <!-- Header Section -->
+<header>
+  <div class="header-left">
+      <div class="logo-container">
+          <img src="/asset/Logo_image.svg" alt="Logo" class="logo">
+      </div>
+      <div id="kabupaten-bogor">
+          <div class="teks-container">
+              <span class="large-text">Bappenda</span>
+              <span class="small-text">Kabupaten Bogor</span>
+          </div>
+          <!-- Gambar dekorasi di sebelah kanan -->
+          <img src="/asset/dekorasi_icon.png" alt="Dekorasi" class="dekorasi-image">
+      </div>            
+      <!-- Header Title -->
+      <div class="header-title">Booking SSPD Badan</div>
+  </div>
+          
+  <div class="header-right">
+  <!--profile section-->
+  <div class="profile-pic-container">
+    <img src="" alt="Profile" class="fotoprofil profile-pic">
+    <div id="profile-overlay" class="profile-overlay">
+        <div class="overlay-content">
+            <img src="" alt="Profile Picture" class="fotoprofil overlay-profile-pic" width="30">
+            <div class="profile-info">
+                <h4><span class="nama">Load</span></h4>
+                <p><span class="userid">Load</span></p>
+            </div>
+            <div class="overlay-buttons">
+                <a href="/profile.html"><button class="profile-btn" id="profileButton" class="profile-button">Profil</button></a>
+                <button class="AUT logout-button">Keluar</button>
+            </div>
+        </div>
+    </div>
+  </div>  
+
+    <!--member section-->        
+    <div class="members-count" id="divisiMemberCount">
+        <span id="thin-text">member</span> <br>
+        <div class="member-overlay" id="member-overlay">
+            <ul class="member-list" id="member-list">
+            <!-- Member list will be populated here -->
+            </ul>
+        </div>
+    </div>
+</div>
+</header>
+<!--end header-->
+<!---->
+<!---->
+<!--start aside-->
+<aside class="sidebar">
+  <div class="menu-container">
+    <div class="box">
+        <div class="menu-item" id="dashboard_page">
+            <a href="../../ppatk-dashboard.html" class="icon-text-wrapper">
+                <i class="fa fa-home sidebar-icon"></i>
+                <span class="sidebar-text">Dashboard</span>
+            </a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-address-book sidebar-icon"></i>
+                <span class="sidebar-text">Booking SSPD</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="PPATK/BOOKING-SSPD/bookingsspd-badan.html">Booking SSPD Badan</a>
+            <a href="PPATK/BOOKING-SSPD/bookingsspd-perorangan.html">Booking SSPD Perorangan</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-check-circle sidebar-icon"></i>
+                <span class="sidebar-text">Validasi BPHTB</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="PPATK/Monitoring_SSPD/permohonan_validasi.html">Permohonan Validasi SSPD</a>
+            <a href="PPATK/Monitoring_SSPD/Status_validasi.html">Status Validasi</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown laporan-bulanan" data-dropdown="true">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-folder-open sidebar-icon"></i>
+                <span class="sidebar-text">Laporan Bulanan PPAT</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="">Input Akta</a>
+            <a href="">Laporan Rekap PPAT</a>
+            <a href="">Monitoring Keterlambatan</a>
+            <a href="">Rincian Laporan Bulanan PPAT</a>
+        </div>
+    </div>
+<!--other section must be on all html-->
+  <div class="box">
+      <div class="menu-item" id="faq_page">
+          <a href="#faqpge" class="icon-text-wrapper">
+              <i class="fa fa-question-circle sidebar-icon"></i>
+              <span class="sidebar-text">FAQ</span>
+          </a>
+      </div>
+  </div>
+  <div class="AUT logout-box">
+      <div class="menu-item" id="logout_page" style="cursor: pointer;">
+          <div href="#logout" class="icon-text-wrapper">
+              <i class="fa fa-sign-out sidebar-icon"></i>
+              <span class="sidebar-text">Log Out</span>
+          </div>
+      </div>
+  </div>
+  </div>
+</aside>
+<!-- End content aside-->
+  <!---->
+  <!---->
+
+
+  <!-- MAIN -->
+  <main class="main-content">
+            <button class="btn viewpdf" onclick="viewDocument()">Unduh Dokumen</button> <!-- Tombol untuk melihat dokumen -->
+
+    <table id="StatusValidTable">
+        <thead>
+            <tr>
+                <th>No. Booking</th>
+                <th>NOP PBB</th>
+                <th>Tahun AJB</th>
+                <th>User ID</th>
+                <th>Nama Wajib Pajak</th>
+                <th>Nama Pemilik Objek Pajak</th>
+                <th>NPWP Wajib Pajak</th>
+                <th>Track Status</th>
+            </tr>
+        </thead>
+        <tbody class="data-masuk" style="cursor: pointer;">
+            <!-- Data akan dimasukkan ke sini oleh JavaScript -->
+        </tbody>
+    </table>
+ 
+</main>
+
+    <!--script pendukung-->
+<script src="../../design-n-script/script_frontback_java/frontend_bookingsspd.js"></script>
+<script src="../../design-n-script/script_frontback_java/header_script.js"></script>
+<script src="../../design-n-script/script_frontback_java/fungsi.js"></script>
+  <!--backend-->
+<script src="../../script-backend/header-backend.js"></script>
+<script src="../../script-backend/ppatk_statusvalidasi.js"></script>
+</body>
+</html>

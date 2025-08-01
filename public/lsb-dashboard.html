@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LSB Dashboard|BAPPENDA</title>
+  <link rel="icon" href="asset/TitleE-bphtb.png" type="image/png">
+    <!---->
+  <link rel="stylesheet" href="design-n-script/design_css/asset_pelengkap.css">
+    <!---->
+    <link rel="stylesheet" href="design-n-script/design_css/sidebar-dashboard/design_dashboard.css">
+    <!---->
+  <link rel="stylesheet" href="design-n-script/design_css/sidebar-dashboard/header_design.css">
+    <link rel="stylesheet" href="design-n-script/design_css/sidebar-dashboard/design_sidebar.css">
+    <link rel="stylesheet" href="design-n-script/design_css/design_text/design_text.css">
+
+</head>
+<body>
+  <!-- Header Section -->
+<header>
+  <div class="header-left">
+      <div class="logo-container">
+          <img src="asset/Logo_image.svg" alt="Logo" class="logo">
+      </div>
+      <div id="kabupaten-bogor">
+          <div class="teks-container">
+              <span class="large-text">Bappenda</span>
+              <span class="small-text">Kabupaten Bogor</span>
+          </div>
+          <!-- Gambar dekorasi di sebelah kanan -->
+          <img src="asset/dekorasi_icon.png" alt="Dekorasi" class="dekorasi-image">
+      </div>            
+      <!-- Header Title -->
+      <div class="header-title">Dashboard</div>
+  </div>
+          
+  <div class="header-right">
+  <!--profile section-->
+  <div class="profile-pic-container">
+    <img src="" alt="Profile" class="fotoprofil profile-pic">
+    <div id="profile-overlay" class="profile-overlay">
+        <div class="overlay-content">
+            <img src="" alt="Profile Picture" class="fotoprofil overlay-profile-pic" width="30">
+            <div class="profile-info">
+                <h4><span class="nama">Load</span></h4>
+                <p><span class="userid">Load</span></p>
+            </div>
+            <div class="overlay-buttons">
+                <button class="profile-btn" id="profileButton" class="profile-button">Profil</button>
+                <button class="AUT logout-button">Keluar</button>
+            </div>
+        </div>
+    </div>
+  </div>  
+
+    <!--member section-->        
+    <div class="members-count" id="divisiMemberCount">
+        <span id="thin-text">member</span> <br>
+        <div class="member-overlay" id="member-overlay">
+            <ul class="member-list" id="member-list">
+            <!-- Member list will be populated here -->
+            </ul>
+        </div>
+    </div>
+</div>
+</header>
+<!--end header-->
+<!---->
+<!---->
+<!--start aside-->
+<aside class="sidebar">
+  <div class="menu-container">
+    <div class="box">
+        <div class="menu-item" id="dashboard_page">
+            <a href="admin-dashboard.html" class="icon-text-wrapper">
+                <i class="fa fa-home sidebar-icon"></i>
+                <span class="sidebar-text">Dashboard</span>
+            </a>
+        </div>
+    </div>
+    <div class="box">
+    <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+        <div class="icon-text-wrapper dropdown-toggle">
+            <i class="fa fa-paper-plane sidebar-icon"></i>
+            <span class="sidebar-text">Pelayanan Penyerahan SSPD</span>
+        </div>
+    </div>
+    <div class="dropdown-content">
+        <a href="LSB/Pelayanan_Penyerahan-SSPD/pelayanan-penyerahan-sspd.html" id="">Pelayanan Penyerahan SSPD </a>
+        <a href="../admins_LSB/adminv_pelayananpenyerahansspd/adminv_Monitoring_Penyerahan_SSPD/admin_monitoring_penyerahansspd.html" id="">Monitoring Penyerahan SSPD</a>
+    </div>
+    </div>
+<!--other section must be on all html-->
+  <div class="box">
+      <div class="menu-item" id="faq_page">
+          <a href="#faqpge" class="icon-text-wrapper">
+              <i class="fa fa-question-circle sidebar-icon"></i>
+              <span class="sidebar-text">FAQ</span>
+          </a>
+      </div>
+  </div>
+  <div class="AUT logout-box">
+      <div class="menu-item" id="logout_page">
+          <div href="#logout" class="icon-text-wrapper">
+              <i class="fa fa-sign-out sidebar-icon"></i>
+              <span class="sidebar-text">Log Out</span>
+          </div>
+      </div>
+  </div>
+  </div>
+</aside>
+<!-- End content aside-->
+  <!---->
+  <!---->
+  <!-- MAIN -->
+  <main class="main-content">
+    <section class="welcome-section">
+        <div class="welcome-banner">
+            <div class="welcome-text">
+                <h2>Selamat Datang, <span class="Username">Loading...</span> dilaman <span class="Divisi">Load</span>.</h2>
+                <h5>Ingin melakukan apa hari ini, Apakah Kamu Ingin Melihat Validasi?</h5>
+            </div>
+            <div class="illustration-container">
+                <!-- Placeholder for the illustration image -->
+                <img src="asset/men_dashboard-removebg-preview.png" alt="Illustration" class="illustration-image">
+            </div>
+            <div class="calendar-container">
+                <p id="calendar-month" class="calendar-month"></p>
+                <div class="month-dropdown" id="monthDropdown">
+                    <div class="month-option">January</div>
+                    <div class="month-option">February</div>
+                    <div class="month-option">March</div>
+                    <div class="month-option">April</div>
+                    <div class="month-option">May</div>
+                    <div class="month-option">June</div>
+                    <div class="month-option">July</div>
+                    <div class="month-option">August</div>
+                    <div class="month-option">September</div>
+                    <div class="month-option">October</div>
+                    <div class="month-option">November</div>
+                    <div class="month-option">December</div>
+                </div>
+                <div class="calendar-grid" id="calendar-grid">
+                    <div class="day">Mo</div>
+                    <div class="day">Tu</div>
+                    <div class="day">We</div>
+                    <div class="day">Th</div>
+                    <div class="day">Fr</div>
+                    <div class="day weekend">Sa</div>
+                    <div class="day weekend">Su</div>
+                    <!-- Dates will be generated dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <!-- Footer berada di dalam page-wrapper -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>2024 BAPPENDA Kabupaten Bogor</p>
+        </div>
+        <div class="footer-links">
+            <a href="#ini_link_ngarah_ke_linkedin">Farras</a>
+            <a href="#ini_link_ngarah_ke_linkedin">Vendor</a>
+        </div>
+    </footer>
+</div>         
+<!-- Overlay untuk konfirmasi log-out -->
+<div id="logout-overlay" class="logout-overlay">
+    <div class="logout-confirm">
+        <div class="icon-container">
+            <i class="fas fa-exclamation"></i>
+        </div>
+        <p>Apakah anda yakin?<br><span>Keluar dari sistem?</span></p>
+        <button id="cancel-logout">Batal</button>
+        <button id="confirm-logout">Iya</button>
+    </div>
+</div>
+<!--script case admin-->
+<script src="script-backend/admin-access-backend.js"></script>
+<!---->
+<!--script front-->
+<script src="design-n-script/script_frontback_java/dashboard.js"></script>
+<script src="design-n-script/script_frontback_java/header_script.js"></script>
+<script src="design-n-script/script_frontback_java/fungsi.js"></script>
+  <!---->
+  <script src="script-backend/header-backend.js"></script>
+</body>
+</html>

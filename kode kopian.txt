@@ -1,0 +1,250 @@
+// ================= PATCH 1: CORE CLASS & INITIALIZATION ================= \\
+import { api } from '../../script-backend/utils/api_utils.js';
+import { loading } from '../../script-backend/utils/loading_utils.js';
+import { initPhotoUpload } from './uploadfoto_profile.js';
+import { initPasswordChange } from './passwordchange_profile.js';
+import { initSignatureUpload } from './ttdverif_profile.js';
+
+export class ProfileController {
+  constructor() {
+    // Inisialisasi semua property TERLEBIH DAHULU
+    this.profileData = null;
+    this.abortController = new AbortController();
+    this.divisiToHide = ['PPAT', 'PPATS', 'Wajib Pajak'];
+    this.cleanupCallbacks = []; // Pastikan diinisialisasi pertama
+    this.loadingIds = new Set();
+    this.elements = {};
+    this.isUpdating = false;
+
+    // Baru kemudian panggil method lain
+    this.initElements();
+    this.bindEvents();
+
+    // Event listener
+    this.unloadHandler = this.cleanup.bind(this);
+    window.addEventListener('beforeunload', this.unloadHandler);
+    this.addCleanup(() => {
+      window.removeEventListener('beforeunload', this.unloadHandler);
+    });
+  }
+
+  // ================= PATCH 2: UTILITY METHODS ================= \\
+  cleanup() {
+    this.cleanupCallbacks.forEach(cb => cb());
+    this.cleanupCallbacks = [];
+  }
+  
+  addCleanup() {
+    this.cleanupCallbacks.push(() => {
+      this.loadingIds.forEach(id => {
+        loading.hide(id);
+        loading.destroy(id);
+      });
+      this.loadingIds.clear();
+      this.abortController.abort();
+    });
+  }
+  
+  initElements() {
+    const getElement = (id) => {
+      const el = document.getElementById(id);
+      if (!el) console.warn(`Element #${id} not found`);
+      return el;
+    };
+    
+    this.elements = {
+      profileContainer: getElement('profile-container'),
+      photoUploadForm: getElement('upload-form'),
+      nipField: getElement('nip-field'),
+      specialField: getElement('special_field'),
+      specialFieldInput: getElement('special_field_input'),
+      specialParafv: getElement('special_ParafValidasi'),
+    };
+  }
+  
+  bindEvents() {
+    this.loadProfile();
+    
+    if (this.elements.photoUploadForm) {
+      this.elements.photoUploadForm.addEventListener('submit', (e) => this.handlePhotoUpload(e));
+    }
+  }
+
+  // ================= PATCH 3: PROFILE LOADING SYSTEM ================= \\
+  async loadProfile() {
+    let loadingId;
+    try {
+      this.prepareRequest();
+      loadingId = this.showProfileLoading();
+      
+      await this.fetchProfileData();
+      this.handleProfileData();
+
+      this.hideLoading(loadingId);
+    } catch (error) {
+      this.handleProfileError(error);
+      this.hideLoading(loadingId);
+    } finally {
+      if (loadingId !== undefined) {
+        this.cleanupLoading(loadingId);
+      }
+      this.currentTimeout = null;
+    }
+  }
+
+  prepareRequest() {
+    // Batalkan request sebelumnya jika ada
+    this.abortController.abort();
+    this.abortController = new AbortController();
+    this.addCleanup();
+  }
+
+  showProfileLoading() {
+    if (!this.elements.profileContainer) {
+      throw new Error('Profile container not found');
+    }
+
+    const loadingId = loading.create({
+      target: this.elements.profileContainer,
+      message: 'Memuat profil...',
+      type: 'spinner'
+    });
+    
+    try {
+      this.loadingIds.add(loadingId);
+      loading.show(loadingId);
+      
+      this.currentTimeout = setTimeout(() => {
+        if (this.loadingIds.has(loadingId)) {
+          loading.hide(loadingId);
+          this.showError('Request terlalu lama, silakan coba lagi');
+        }
+      }, 30000);
+      
+      return loadingId;
+    } catch (error) {
+      loading.destroy(loadingId);
+      throw error;
+    }
+  }
+
+  // ... (methods terkait profile loading lainnya)
+
+  // ================= PATCH 4: PROFILE RENDERING ================= \\
+  renderProfile() {
+    if (!this.profileData) {
+      this.showError('Data profil tidak diterima dari server');
+      return;
+    }
+    if (!this.validateProfileData(this.profileData)) {
+      this.showError('Data profil tidak valid');
+      return;
+    }
+
+    const userData = this.profileData;
+    const cacheBuster = `?t=${new Date().getTime()}`;
+    
+    // 1. Handle divisi-specific fields
+    this.handleDivisiSpecificFields(userData);
+    // 2. Update user data fields
+    this.updateUserDataFields(userData);
+    // 3. Update profile photo dengan cache busting
+    this.updateProfilePhoto(userData, cacheBuster);
+    // 4. Handle tanda tangan dengan cache busting
+    this.handleSignature(userData, cacheBuster);
+    
+    // Sembunyikan error jika ada
+    this.hideError();
+  }
+
+  // ... (methods terkait rendering lainnya)
+
+  // ================= PATCH 5: PHOTO UPLOAD SYSTEM ================= \\
+  async handlePhotoUpload(event) {
+    event.preventDefault();
+    
+    if (!this.validatePhotoInput(event.target)) {
+      return;
+    }
+    
+    let uploadLoadingId;
+    
+    try {
+      uploadLoadingId = this.showUploadLoading(event.target);
+      const result = await this.uploadPhoto(event.target);
+      this.handleUploadSuccess(result);
+    } catch (error) {
+      this.handleUploadError(error, uploadLoadingId);
+    } finally {
+      if (uploadLoadingId) {
+        loading.hide(uploadLoadingId);
+        setTimeout(() => loading.destroy(uploadLoadingId), 500);
+      }
+    }
+  }
+
+  validatePhotoInput(form) {
+    const fileInput = form.querySelector('input[type="file"]');
+    
+    if (!fileInput.files.length) {
+      this.showError('Pilih file terlebih dahulu');
+      return false;
+    }
+    
+    return true;
+  }
+
+  // ... (methods terkait photo upload lainnya)
+
+  // ================= PATCH 6: SUBMODULES & MISC ================= \\
+  initSubModules() {
+    const modules = [
+      { 
+        name: 'Photo Upload', 
+        init: () => initPhotoUpload(),
+        shouldLoad: true
+      },
+      { 
+        name: 'Password Change', 
+        init: () => initPasswordChange(),
+        shouldLoad: true
+      },
+      { 
+        name: 'Signature Upload', 
+        init: () => initSignatureUpload(),
+        shouldLoad: this.shouldLoadSignatureModule()
+      }
+    ];
+
+    modules.forEach(module => {
+      if (!module.shouldLoad) return;
+      
+      try {
+        module.init();
+      } catch (err) {
+        console.error(`${module.name} gagal diinisialisasi:`, err);
+        this.showError(`Fitur ${module.name} tidak tersedia`);
+      }
+    });
+  }
+
+  // ... (methods lainnya)
+
+  showError(message) {
+    if (!this.elements.errorDisplay) return;
+    
+    this.elements.errorDisplay.textContent = message;
+    this.elements.errorDisplay.style.display = 'block';
+    
+    setTimeout(() => {
+      if (this.elements.errorDisplay) {
+        this.elements.errorDisplay.style.display = 'none';
+      }
+    }, 5000);
+  }
+}
+
+// Inisialisasi
+document.addEventListener('DOMContentLoaded', () => {
+  new ProfileController();
+});

@@ -1,0 +1,50 @@
+/* Styling untuk overlay */
+.overlay_notifikasi {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;  /* Menyembunyikan overlay secara default */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling untuk konten dalam overlay */
+.overlay-content-tolak {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+}
+
+/* Styling untuk teks dan tombol */
+.overlay-content-tolak p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirmReject {
+    background-color: red;
+    color: white;
+}
+
+#cancelReject {
+    background-color: #ccc;
+    color: black;
+}

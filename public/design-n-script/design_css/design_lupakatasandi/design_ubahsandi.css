@@ -1,0 +1,198 @@
+.password-reset-container {
+    max-width: 500px;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.password-reset-container.compact {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Header styles (same as previous) */
+.tax-theme-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.tax-icon {
+    background: linear-gradient(135deg, #2a5caa, #4aa65e);
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 0.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tax-theme-header h2 {
+    color: #2a5caa;
+    margin-bottom: 0.3rem;
+    font-size: 1.3rem;
+}
+
+.tax-theme-header p {
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+/* Verified email section */
+.verified-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+    padding: 10px;
+    background-color: #f0f9f0;
+    border-radius: 6px;
+    border-left: 4px solid #4aa65e;
+}
+
+.verified-email svg {
+    width: 18px;
+    height: 18px;
+}
+
+.verified-email span {
+    font-size: 0.9rem;
+    color: #2a5caa;
+    font-weight: 500;
+}
+
+/* Form styles (similar to previous) */
+.tax-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.input-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.input-group input {
+    width: 90%;
+    padding: 10px 12px 10px 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: #f9f9f9;
+}
+
+.password-requirements {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-top: 4px;
+    padding-left: 5px;
+}
+
+/* Button styles (same as previous) */
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2a5caa, #4aa65e);
+    color: white;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* Footer styles (same as previous) */
+.tax-theme-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.logo-small {
+    height: 30px;
+}
+
+@media (max-width: 480px) {
+    .password-reset-container {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .form-footer {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+/**//**/
+/**//**/
+.error-message {
+    color: #d32f2f;
+    background-color: #ffebee;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border-left: 4px solid #d32f2f;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.error-message svg {
+    width: 18px;
+    height: 18px;
+}
+.verified-email {
+    background-color: #f0f9f0;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-left: 4px solid #4aa65e;
+}
+
+.verified-email svg {
+    flex-shrink: 0;
+}

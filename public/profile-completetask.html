@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lengkapi Profil|BPHTB</title>
+        <link rel="icon" href="asset/TitleE-bphtb.png" type="image/png">
+    <style>
+        :root {
+            --navy: #001f3f;
+            --gold: #D4AF37;
+            --light-gold: #F5E7C1;
+            --light-gray: #f8f9fa;
+            --dark-gray: #495057;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-gray);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
+        }
+        
+        .profile-container {
+            max-width: 700px;
+            width: 100%;
+            margin: 20px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--navy), var(--gold));
+        }
+        
+        h1 {
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            font-size: 28px;
+        }
+        
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--navy);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        
+        button {
+            background: linear-gradient(135deg, var(--navy), #003366);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(0, 31, 63, 0.2);
+        }
+        
+        button:hover {
+            background: linear-gradient(135deg, #002244, var(--navy));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 31, 63, 0.3);
+        }
+        
+        #message {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            font-weight: 500;
+            text-align: center;
+            border: 1px solid transparent;
+        }
+        
+        .error { 
+            background-color: #FFF0F0;
+            color: #D32F2F;
+            border-color: #FFCDD2;
+        }
+        
+        .success { 
+            background-color: #F1F8E9;
+            color: #388E3C;
+            border-color: #C8E6C9;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .logo::before {
+            content: "✧";
+            color: var(--gold);
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        .logo::after {
+            content: "✧";
+            color: var(--gold);
+            margin-left: 10px;
+            font-size: 28px;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="profile-container">
+    <div class="logo-container">
+        <div class="logo">SISTEM PERPAJAKAN</div>
+    </div>
+    
+    <h1>Lengkapi Profil Anda</h1>
+    <form id="profileForm">
+        <!-- Field NIP (untuk semua kecuali Wajib Pajak) -->
+        <div class="form-group" id="nipField">
+            <label for="nip">Nomor Identifikasi Pegawai</label>
+            <input type="text" id="nip" name="nip" placeholder="Masukkan NIP Anda">
+        </div>
+
+        <!-- Field Username (wajib untuk semua) -->
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Buat username unik" required>
+        </div>
+
+        <!-- Khusus PPAT/PPATS -->
+        <div class="form-group" id="specialField">
+            <label for="special_field">Nama PPAT</label>
+            <input type="text" id="special_field" name="special_field" placeholder="Nama lengkap + gelar">
+        </div>
+
+        <!-- Khusus Peneliti Validasi -->
+        <div class="form-group" id="special_ParafValidasi">
+            <label for="special_field">Nama Paraf Validasi</label>
+            <input type="text" id="special_parafv" name="special_field" placeholder="Nama + gelar">
+        </div>
+
+        <button type="submit">SIMPAN PROFIL</button>
+    </form>
+    <div id="message"></div>
+</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const divisi = localStorage.getItem('divisi');
+            const nipField = document.getElementById('nipField');
+            const specialField = document.getElementById('specialField');
+            const special_parafv = document.getElementById('special_ParafValidasi');
+
+            // Sembunyikan field yang tidak diperlukan
+            if (divisi === 'Wajib Pajak' || divisi === 'PPAT' || divisi === 'PPATS') {
+                nipField.style.display = 'none';
+            }
+            if (divisi !== 'PPAT' && divisi !== 'PPATS') {
+                specialField.style.display = 'none';
+            }
+            if (divisi !== 'Peneliti Validasi') {
+                special_parafv.style.display = 'none';
+            }
+
+            // Handle form submission
+            document.getElementById('profileForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    userid: localStorage.getItem('userid'),
+                    nip: document.getElementById('nip').value,
+                    username: document.getElementById('username').value,
+                    special_field: document.getElementById('special_field').value,
+                    special_parafv: document.getElementById('special_parafv').value
+                };
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/auth/complete-profile', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const data = await response.json();
+                    const messageDiv = document.getElementById('message');
+
+                    if (response.ok) {
+                        // Update status profil di localStorage
+                        localStorage.setItem('is_profile_complete', 'true');
+                        localStorage.setItem('nip', formData.nip);
+                        localStorage.setItem('username', formData.username);
+                        localStorage.setItem('special_field', formData.special_field);
+                        localStorage.setItem('special_parafv', formData.special_parafv);
+
+                        // Tampilkan pesan sukses
+                        messageDiv.style.display = 'block';
+                        messageDiv.className = 'success';
+                        messageDiv.textContent = 'Profil berhasil dilengkapi!';
+
+                        // Redirect ke dashboard setelah 2 detik
+                        setTimeout(() => {
+                            redirectBasedOnDivision(divisi);
+                        }, 2000);
+                    } else {
+                        messageDiv.style.display = 'block';
+                        messageDiv.className = 'error';
+                        messageDiv.textContent = data.message || 'Gagal menyimpan profil';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    document.getElementById('message').textContent = 'Terjadi kesalahan jaringan';
+                }
+            });
+
+            // Fungsi redirect
+            function redirectBasedOnDivision(divisi) {
+                const dashboards = {
+                    'Administrator': 'admin-dashboard.html',
+                    'Customer Service': 'cs-dashboard.html',
+                    'PPAT': 'ppatk-dashboard.html',
+                    'PPATS': 'ppatk-dashboard.html',
+                    'LTB': 'ltb-dashboard.html',
+                    'LSB': 'lsb-dashboard.html',
+                    'Peneliti': 'peneliti-dashboard.html',
+                    'Peneliti Validasi': 'penelitiValidasi-dashboard.html',
+                    'BANK': 'bank-dashboard.html',
+                    'Wajib Pajak': 'wp-dashboard.html'
+                };
+                
+                window.location.href = dashboards[divisi] || 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

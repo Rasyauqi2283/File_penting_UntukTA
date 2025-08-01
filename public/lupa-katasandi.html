@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lupa Katasandi | BAPPENDA BPHTB</title>
+    <!---->
+        <link rel="icon" href="asset/TitleE-bphtb.png">
+    <!---->
+    <link rel="stylesheet" href="design-n-script/design_css/asset_pelengkap.css">
+    <link rel="stylesheet" href="design-n-script/design_css/design_lupakatasandi/design_lupasandi.css">
+</head>
+<body>
+<div class="forgot-password-container">
+    <div class="tax-theme-header">
+        <div class="tax-icon">
+        <img src="asset/Logo_bappenda.svg" alt="Logo BAPPENDA" class="logo-small">
+        </div>
+        <h2>Pemulihan Kata Sandi</h2>
+        <p>Silakan verifikasi identitas Anda untuk reset kata sandi</p>
+    </div>
+    <form id="resetPasswordForm" class="tax-form">
+        <div class="input-group">
+            <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6c757d">
+                    <path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z"/>
+                </svg>
+            </div>
+            <input type="text" id="userid" name="user[userid]" placeholder="UserID" required>
+            <div class="input-underline"></div>
+        </div>
+        
+        <div class="input-group">
+            <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6c757d">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/>
+                </svg>
+            </div>
+            <input type="text" id="nik" name="user[nik]" placeholder="NIK (Nomor Induk Kependudukan)" required>
+            <div class="input-underline"></div>
+        </div>
+        
+        <div class="input-group">
+            <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6c757d">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </div>
+            <input type="text" id="nama" name="user[nama]" placeholder="Nama Lengkap Sesuai KTP" required>
+            <div class="input-underline"></div>
+        </div>
+        
+        <div class="form-row">
+            <div class="input-group half-width">
+                <div class="input-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6c757d">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                </div>
+                <input type="text" id="telepon" name="user[telepon]" placeholder="Nomor Telepon" required>
+                <div class="input-underline kurang"></div>
+            </div>
+            
+            <div class="input-group half-width">
+                <div class="input-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6c757d">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </div>
+                <input type="email" id="email" name="user[email]" placeholder="Alamat Email" required>
+                <div class="input-underline kurang"></div>
+            </div>
+        </div>
+        
+        <div class="form-footer">
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='/login.html';">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+                Batal
+            </button>
+            <button type="submit" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff">
+                    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                </svg>
+                Verifikasi Identitas
+            </button>
+        </div>
+    </form>
+    
+    <div class="tax-theme-footer">
+        <p>Badan Pengelolaan Pendapatan Daerah Kabupaten Bogor</p>
+    </div>
+</div>
+<script>
+// Mengambil data profil pengguna dari API
+fetch('http://localhost:3000/api/profile')
+    .then(response => response.json())
+    .then(user => {
+        console.log('Data pengguna diperoleh', user);
+        if (user) {
+            // Mengubah textContent atau value untuk semua elemen dengan class yang sesuai
+            document.querySelectorAll('.userid').forEach(element => {
+                element.value = user.userid || '';  // Pastikan tidak null
+                element.textContent = user.userid || '';  // Set default jika null
+            });
+
+            document.querySelectorAll('.nama').forEach(element => {
+                element.value = user.nama || '';  // Pastikan tidak null
+                element.textContent = user.nama || '';  // Set default jika null
+            });
+
+            document.querySelectorAll('.divisi').forEach(element => {
+                element.textContent = user.divisi || '';  // Set default jika null
+            });
+
+            document.getElementById('email').value = user.email || '';  // Set default jika null
+            document.getElementById('telepon').value = user.telepon || '';  // Set default jika null
+
+            // Memperbaiki path gambar untuk src
+            const fotoProfilUrl = decodeURIComponent(user.fotoprofil.replace('\\', '/'));  // Path relatif dari root
+            const fotoProfilElements = document.querySelectorAll('.fotoprofil');
+            fotoProfilElements.forEach(element => {
+                element.src = fotoProfilUrl || '';  // Set default jika null
+            });
+        } else {
+            console.log('Data pengguna tidak ditemukan.');
+        }
+    })
+    .catch(err => console.error('Gagal mengambil data profil:', err));
+////
+////
+        document.getElementById('resetPasswordForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // Mencegah form submit default
+
+        const formData = new FormData(this);
+        const data = {
+            userid: formData.get('user[userid]'),
+            nik: formData.get('user[nik]'),
+            nama: formData.get('user[nama]'),
+            telepon: formData.get('user[telepon]'),
+            email: formData.get('user[email]'),
+        };
+
+        // Log data yang dikirim untuk verifikasi
+        console.log('Data yang dikirim:', data);
+
+        // Menampilkan alert untuk memastikan data siap dikirim
+        alert('Data siap dikirim!');
+
+        // Kirim data ke backend untuk memulai proses reset password
+        fetch('/api/auth/reset-password-request', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log('Response dari backend:', result);  
+            if (result.success) {
+                alert('Permintaan reset berhasil. Redirect ke halaman ubah kata sandi.');
+                window.location.href = `/ubah-katasandi.html?token=${result.token}`;
+            } else {
+                alert('Data tidak cocok atau kesalahan lainnya.');
+            }
+        })
+        .catch(error => {
+            console.error('Terjadi kesalahan:', error);
+            alert('Gagal mengirim permintaan.');
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+[
+  {
+    "nama": "Super Admin 1",
+    "NIK": "3276010101010001",
+    "telepon": "081234567890",
+    "email": "sa1@admin.com",
+    "password": "$2b$10$35WPHQXgEpByyj4FrsIqO.TT0/.VPNpo0mWfKdeMNqGwgo1N5gDyK",
+    "foto": "",
+    "otp": 0,
+    "verified": true,
+    "userID": "SA-01",
+    "Divisi": "Super Administrator",
+    "FotoProfil": ""
+  },
+  {
+    "nama": "Super Admin 2",
+    "NIK": "3276010101010002",
+    "telepon": "081234567891",
+    "email": "sa2@admin.com",
+    "password": "$2b$10$/UIVboVnnyGSojmkGtYCse5XJ5XYRzvm/JzkB9Z9D3iU0Czt/zqn.",
+    "foto": "",
+    "otp": 0,
+    "verified": true,
+    "userID": "SA-02",
+    "Divisi": "Super Administrator",
+    "FotoProfil": ""
+  },
+  {
+    "nama": "arras",
+    "NIK": "1234567819212124",
+    "telepon": "08111111111",
+    "email": "farrassyauqi22803@gmail.com",
+    "password": "$2b$10$O7EBS9T7w0m1cVeeDpQUzOD49qQfIIBsd4tyVYmS3235ecgEEqNrC",
+    "foto": "public\\uploads\\1744423023424-105690743.jpg",
+    "otp": 923397,
+    "status": "verified_pending",
+    "userID": "",
+    "Divisi": "",
+    "FotoProfil": ""
+  },
+  {
+    "nama": "arras",
+    "NIK": "1234567819212124",
+    "telepon": "08111111111",
+    "email": "farrassyauqi22803@gmail.com",
+    "password": "$2b$10$CX1SC.O4UoKmIUbBfkTrKeLyGacp9C9hA3vneNSW2D.aSSZqp56gu",
+    "foto": "public\\uploads\\1744423367638-778239841.jpg",
+    "otp": 651003,
+    "status": "unverified",
+    "userID": "",
+    "Divisi": "",
+    "FotoProfil": ""
+  },
+  {
+    "nama": "arras",
+    "NIK": "1234567819212124",
+    "telepon": "08111111111",
+    "email": "rainbirdts@gmail.com",
+    "password": "$2b$10$vReoEMq0.1WG03itOPbyP.3uzbkdhM2uLdxUcGwtVk07uxiBGLGWC",
+    "foto": "public\\uploads\\1744425409566-968851271.jpg",
+    "otp": 127657,
+    "status": "verified_pending",
+    "userID": "",
+    "Divisi": "",
+    "FotoProfil": ""
+  },
+  {
+    "nama": "arras",
+    "NIK": "1234567819212124",
+    "telepon": "08111111111",
+    "email": "rainbirdts@gmail.com",
+    "password": "$2b$10$OqpgPMUiXjym/oOEcRq5FO//x8WHct6gX.CvgF/nycWJ9FbPEHEz2",
+    "foto": "public\\uploads\\1744426022848-247060967.jpg",
+    "otp": 902822,
+    "status": "unverified",
+    "userID": "",
+    "Divisi": "",
+    "FotoProfil": ""
+  }
+]

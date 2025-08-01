@@ -1,0 +1,304 @@
+/* Mengatur halaman penuh dengan display flex */
+body, html {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+    height: 100%;
+}
+
+.login-container {
+    background: url('/asset/Background_login.svg') no-repeat center center/cover;
+    display: flex;
+    height: 100vh;
+}
+.login-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(9, 82, 87, 0.5), rgba(192, 192, 192, 0.5), rgba(192, 192, 192, 0.5));
+    z-index: 2;
+    opacity: 0.3;
+    background-size: 100% 200%;
+    animation: waterMove 8s ease-in-out infinite;
+}
+.login-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+}
+
+@keyframes waterMove {
+    0% {
+        background-position: 0 0%;
+    }
+    50% {
+        background-position: 0 105%;
+    }
+    100% {
+        background-position: 0 0%;
+    }
+}
+
+/* design form login, lupa katasandi, registrasi */
+.left-panel {
+    width: 300px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+.logo-section {
+    margin-top: -50px;
+    width: 300px;
+    height: 40%;
+      background-image: url('/asset/Bg_logo_login.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Overlay transparan hitam */
+.logo-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+.logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.logo-section h3,
+.logo-section h1,
+.logo-section p,
+.logo-section .logo {
+    position: relative;
+    margin-top: -5px;
+    z-index: 2;
+}
+.logo-section p{
+    margin-top: 8px;
+    display: flex;
+    position: relative;
+    text-align: left;
+}
+/**/
+.login-form{
+    margin-top: 10px;
+}
+/* Mengatur gaya untuk setiap kelompok input */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #ddd;
+}
+
+/* Wrapper untuk input dan ikon */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1em;
+    color: #333;
+}
+.input-wrapper input::placeholder {
+    color: #888;
+}
+
+
+.icon {
+    width: 50px;
+    height: 50px;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: draw 5s ease forwards infinite;
+}
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dashoffset: 100;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/**/
+/**/
+.forgot-password {
+    color: #a8a8a8;
+    font-size: 0.9em;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.forgot-password:hover{
+    color: #00a8a8;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00a8a8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+}
+.login-button:hover {
+    background-color: #00dbdb;
+    color: #333;
+}
+
+.register {
+    font-size: 0.9em;
+    margin-top: 15px;
+    text-align: center;
+}
+.register a {
+    color: #00a8a8;
+    text-decoration: none;
+}
+.register a:hover{
+    color: #004848;
+}
+/**/
+/**/
+.right-panel {
+    z-index: 4;
+    width: 60%;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+
+}
+.right-panel h2 {
+    font-size: 3em;
+    margin-bottom: 210px;
+    color: #c0c0c0;
+    opacity: 0.8;
+    animation: colorFade 3s ease-in-out infinite;
+}
+
+
+/* Keyframes untuk animasi warna dan opacity */
+@keyframes colorFade {
+    0% {
+        color: #c0c0c0; /* Warna awal */
+        opacity: 0.8; /* Opacity awal */
+    }
+    50% {
+        color: #fff; /* Warna berubah menjadi abu-abu */
+        opacity: 1; /* Opacity penuh */
+    }
+    100% {
+        color: #c0c0c0; /* Kembali ke warna awal */
+        opacity: 0.8; /* Kembali ke opacity awal */
+    }
+}
+
+
+.description {
+    color: white;
+    text-align: left;
+    display: flex;
+    position: relative;
+    width: 100%;
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin-bottom: -190px;
+    margin-left: 40px;
+}
+
+/**/
+.message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang gelap dengan transparansi */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    display: none; /* Awalnya tersembunyi */
+    z-index: 1000; /* Agar berada di atas konten lain */
+}
+/**//**/
+/**/
+.message-box {
+  padding: 12px;
+  border-radius: 6px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.message-box svg {
+  margin-right: 10px;
+}
+.message-box.success {
+  background-color: #e6f7e6;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+.message-box.error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+.success-message, .error-message {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,153 @@
+/* CSS untuk mengatur visibilitas form */
+.userForm {
+  display: none; /* Default: form tidak terlihat */
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Transisi halus untuk opacity */
+}
+.userForm.show {
+  display: block; /* Tampilkan form */
+  opacity: 1; /* Opacity penuh saat ditampilkan */
+}
+/* General Styling */
+.data-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  color: #5d7083;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  font-size: 0.9em;
+}
+
+/* Card Styling */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group input{
+width: 70%;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+select.form-control {
+  height: 40px;
+}
+
+/* Button Styling */
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-primary {
+  background: #3498db;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #42525d;
+}
+
+.btn-secondary {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: #d0d0d0;
+}
+
+/* Table Styling */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  background: #f8f9fa;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #61768b;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.data-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+.data-table tr:hover {
+  background-color: #f8f9fa;
+}
+/**/
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  z-index: 1000;
+  animation: fadeIn 0.3s;
+}
+
+.notification.success {
+  background-color: #4CAF50;
+}
+
+.notification.error {
+  background-color: #f44336;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

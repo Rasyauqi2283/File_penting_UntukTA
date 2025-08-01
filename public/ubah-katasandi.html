@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubah Katasandi | BPHTB</title>
+        <!---->
+        <link rel="icon" href="asset/TitleE-bphtb.png">
+    <!---->
+    <link rel="stylesheet" href="design-n-script/design_css/asset_pelengkap.css">
+    <link rel="stylesheet" href="design-n-script/design_css/design_lupakatasandi/design_ubahsandi.css">
+</head>
+<body>
+<div class="password-reset-container compact">
+    <div class="tax-theme-header">
+        <div class="tax-icon">
+        <img src="asset/Logo_bappenda.svg" alt="Logo BAPPENDA" class="logo-small">
+        </div>
+        <h2>Ubah Kata Sandi</h2>
+        <p>Buat kata sandi baru untuk akun Anda</p>
+    </div>
+    
+    <div class="verified-email">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#4aa65e">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <span id="verifiedEmailDisplay"></span>
+            <input type="hidden" id="email" name="email">
+    </div>
+    
+    <form id="changePasswordForm" class="tax-form">
+        <div class="input-group">
+            <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6c757d">
+                    <rect x="5" y="11" width="14" height="10" rx="2" ry="2"></rect>
+                    <path d="M12 17v-2"></path>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+            </div>
+            <input type="password" id="password" placeholder="Kata Sandi Baru" required>
+            <div class="input-underline"></div>
+            <div class="password-requirements">
+                <span>Minimal 8 karakter, mengandung angka dan huruf</span>
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6c757d">
+                    <rect x="5" y="11" width="14" height="10" rx="2" ry="2"></rect>
+                    <path d="M12 17v-2"></path>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+            </div>
+            <input type="password" id="confirm-password" placeholder="Konfirmasi Kata Sandi" required>
+            <div class="input-underline"></div>
+        </div>
+        
+        <div class="form-footer">
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='/login.html';">
+                Batal
+            </button>
+            <button type="submit" class="btn btn-primary">
+                Simpan Perubahan
+            </button>
+        </div>
+    </form>
+    
+    <div class="tax-theme-footer">
+
+    </div>
+</div>    
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    // Ambil token dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    
+    if (!token) {
+        showError("Token tidak valid", true);
+        return;
+    }
+
+    try {
+        // Verifikasi token dengan backend
+        const response = await fetch('/api/auth/verify-reset-token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ token })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            // Tampilkan email yang sudah diverifikasi
+            document.getElementById('verifiedEmailDisplay').textContent = result.email;
+            document.getElementById('email').value = result.email;
+            
+            // Simpan email di localStorage sebagai backup
+            localStorage.setItem('resetEmail', result.email);
+        } else {
+            showError(result.message || "Token tidak valid", true);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showError("Terjadi kesalahan saat memverifikasi token", true);
+    }
+});
+
+// Fungsi untuk menampilkan error
+function showError(message, redirect = false) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    document.querySelector('.tax-form').prepend(errorDiv);
+    
+    if (redirect) {
+        setTimeout(() => {
+            window.location.href = 'lupa-katasandi.html';
+        }, 3000);
+    }
+}
+
+// Handle form submission
+document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const token = new URLSearchParams(window.location.search).get('token');
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    // Validasi password
+    if (password !== confirmPassword) {
+        showError("Konfirmasi password tidak sesuai");
+        return;
+    }
+
+    try {
+        const response = await fetch('/api/auth/reset-password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ token, email, password })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            // Hapus email dari localStorage setelah berhasil reset
+            localStorage.removeItem('resetEmail');
+            
+            // Tampilkan pesan sukses
+            alert('Password berhasil direset!');
+            window.location.href = 'login.html';
+        } else {
+            showError(result.message || "Gagal mereset password");
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showError("Terjadi kesalahan saat mereset password");
+    }
+});
+</script> 
+</body>
+</html>

@@ -1,0 +1,92 @@
+/* Styling untuk tombol dropdown */
+.btn-toggle-signature {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-toggle-signature:hover {
+  background-color: #45a049;
+}
+
+/* Styling untuk form tanda tangan */
+.signature-form-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.signature-preview {
+  margin-top: 20px;
+  border-top: 2px solid #ddd;
+  padding-top: 10px;
+}
+
+.signature-preview img {
+  max-width: 100px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.signature-box {
+    border: 2px solid #ddd;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+}
+
+.signature-box:hover {
+    background-color: #f7f7f7;
+}
+
+#signatureDetails {
+    display: none;
+    margin-top: 10px;
+}
+
+#signatureImage {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+/**/
+    .signature-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .result-box {
+        background-color: red;
+        width: 200px;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .result-box .signature-item {
+        background-color: purple;
+        color: white;
+        margin: 5px 0;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .signature-detail-box {
+        background-color: red;
+        width: 250px;
+        padding: 10px;
+        margin-left: 20px;
+        text-align: center;
+    }
+
+    #signatureImage {
+        max-width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }

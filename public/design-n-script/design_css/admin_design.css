@@ -1,0 +1,15 @@
+#notification-badge {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    display: none; /* Awalnya disembunyikan */
+}
+
+#notification-badge.hidden {
+    display: none;
+}

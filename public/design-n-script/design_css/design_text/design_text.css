@@ -1,0 +1,110 @@
+/* General styles for body and anchor tags */
+html, body {
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #222;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+read-only{
+    background-color: #2faea1;
+}
+.hide {
+    display: none;
+}
+
+.bun-content{
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    width: 100%;
+}
+/* ============================= */
+/* Main Content Section */
+/* ============================= */
+
+.main-content {
+    flex: 1;
+    margin-left: 80px;
+    transition: transform 0.5s ease, width 0.5s;
+    margin-top: 70px;
+    overflow: auto;
+    padding: 20px; 
+}
+
+.main-content.shifted {
+    transform: translateX(180px);
+}
+
+/* ============================= */
+/* Footer Design Section */
+/* ============================= */
+
+/* Footer container styling */
+.footer {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(270deg, #3a7ca5, #5c8aa4, #4b9d8c, #085886, #0f2748);
+    background-size: 500% 500%;
+    animation: waveAnimation 15s infinite linear;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 8;
+}
+
+/* Wave animation for footer */
+@keyframes waveAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Content inside the footer, moves with the sidebar */
+.footer-content {
+    padding: 0 0 0 70px;
+    transition: margin-left 0.5s ease, transform 0.5s ease;
+    margin-left: 0;
+    color: white;
+    font-size: 14px;
+    transform: scale(1);
+}
+
+/* Shrink effect when sidebar expands */
+.footer-content.shifted {
+    transform: scale(1) translateX(180px);
+}
+
+/* Footer links section remains at the right and does not move */
+.footer-links {
+    display: flex;
+    gap: 10px;
+    margin-right: 70px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #a3d9f9;
+}

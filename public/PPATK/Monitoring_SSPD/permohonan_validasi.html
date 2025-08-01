@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PPATK Dashboard|BAPPENDA</title>
+  <link rel="icon" href="/asset/TitleE-bphtb.png" type="image/png">
+    <!---->
+  <link rel="stylesheet" href="/design-n-script/design_css/asset_pelengkap.css">
+    <!---->
+    <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/design_dashboard.css">
+    <!--form-->
+    <link rel="stylesheet" href="../../design-n-script/design_css/form_design.css">
+    <!--Form Permohonan-->
+    <link rel="stylesheet" href="../../design-n-script/design_css/form_permohonan_design.css">
+    <link rel="stylesheet" href="../../design-n-script/design_css/design_table/tabel_ppatksspd.css">
+    <link rel="stylesheet" href="../../design-n-script/design_css/design_table/table_design.css">
+    <!---->
+  <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/header_design.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/design_sidebar.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/design_text/design_text.css">
+    <!---->
+    <link id="favicon" rel="icon" href="path/to/favicon.ico">
+
+
+</head>
+<body>
+  <!-- Header Section -->
+<header>
+  <div class="header-left">
+      <div class="logo-container">
+          <img src="/asset/Logo_image.svg" alt="Logo" class="logo">
+      </div>
+      <div id="kabupaten-bogor">
+          <div class="teks-container">
+              <span class="large-text">Bappenda</span>
+              <span class="small-text">Kabupaten Bogor</span>
+          </div>
+          <!-- Gambar dekorasi di sebelah kanan -->
+          <img src="/asset/dekorasi_icon.png" alt="Dekorasi" class="dekorasi-image">
+      </div>            
+      <!-- Header Title -->
+      <div class="header-title">Booking SSPD Badan</div>
+  </div>
+          
+  <div class="header-right">
+  <!--profile section-->
+  <div class="profile-pic-container">
+    <img src="" alt="Profile" class="fotoprofil profile-pic">
+    <div id="profile-overlay" class="profile-overlay">
+        <div class="overlay-content">
+            <img src="" alt="Profile Picture" class="fotoprofil overlay-profile-pic" width="30">
+            <div class="profile-info">
+                <h4><span class="nama">Load</span></h4>
+                <p><span class="userid">Load</span></p>
+            </div>
+            <div class="overlay-buttons">
+                <a href="/profile.html"><button class="profile-btn" id="profileButton" class="profile-button">Profil</button></a>
+                <button class="AUT logout-button">Keluar</button>
+            </div>
+        </div>
+    </div>
+  </div>  
+
+    <!--member section-->        
+    <div class="members-count" id="divisiMemberCount">
+        <span id="thin-text">member</span> <br>
+        <div class="member-overlay" id="member-overlay">
+            <ul class="member-list" id="member-list">
+            <!-- Member list will be populated here -->
+            </ul>
+        </div>
+    </div>
+</div>
+</header>
+<!--end header-->
+<!---->
+<!---->
+<!--start aside-->
+<aside class="sidebar">
+  <div class="menu-container">
+    <div class="box">
+        <div class="menu-item" id="dashboard_page">
+            <a href="../../ppatk-dashboard.html" class="icon-text-wrapper">
+                <i class="fa fa-home sidebar-icon"></i>
+                <span class="sidebar-text">Dashboard</span>
+            </a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-address-book sidebar-icon"></i>
+                <span class="sidebar-text">Booking SSPD</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="PPATK/BOOKING-SSPD/bookingsspd-badan.html">Booking SSPD Badan</a>
+            <a href="PPATK/BOOKING-SSPD/bookingsspd-perorangan.html">Booking SSPD Perorangan</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-check-circle sidebar-icon"></i>
+                <span class="sidebar-text">Validasi BPHTB</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="permohonan_validasi.html">Permohonan Validasi SSPD</a>
+            <a href="Status_validasi.html">Status Validasi</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown laporan-bulanan" data-dropdown="true">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-folder-open sidebar-icon"></i>
+                <span class="sidebar-text">Laporan Bulanan PPAT</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="">Input Akta</a>
+            <a href="">Laporan Rekap PPAT</a>
+            <a href="">Monitoring Keterlambatan</a>
+            <a href="">Rincian Laporan Bulanan PPAT</a>
+        </div>
+    </div>
+<!--other section must be on all html-->
+  <div class="box">
+      <div class="menu-item" id="faq_page">
+          <a href="#faqpge" class="icon-text-wrapper">
+              <i class="fa fa-question-circle sidebar-icon"></i>
+              <span class="sidebar-text">FAQ</span>
+          </a>
+      </div>
+  </div>
+  <div class="AUT logout-box">
+      <div class="menu-item" id="logout_page" style="cursor: pointer;">
+          <div href="#logout" class="icon-text-wrapper">
+              <i class="fa fa-sign-out sidebar-icon"></i>
+              <span class="sidebar-text">Log Out</span>
+          </div>
+      </div>
+  </div>
+  </div>
+</aside>
+<!-- End content aside-->
+<!-- MAIN -->
+<main class="main-content">
+<!---->
+<div class="action-buttons">
+    <button class="btn cari">Cari</button>
+    <button class="btn tambah" onclick="toggleForm()">Tambah</button>
+    <button class="btn viewpdf" onclick="viewDocument()">View Dokumen</button> <!-- Tombol untuk melihat dokumen -->
+</div>
+
+<div class="dropdown-form-container" id="dropdownFormContainer">
+<div class="form-wrapper">
+    <h1 class="form-title">Formulir Validasi PPATK</h1>
+    
+    <form id="ppatkForm" class="validation-form">
+        <!-- Header Decoration -->
+        <div class="form-header-decoration">
+            <div class="tax-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 14V20H5V14H2V22H22V14H19Z"/>
+                    <path d="M12 2L22 12H18V17H6V12H2L12 2ZM8 12H16V15H8V12Z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Section 1: Dual Column Data -->
+        <div class="form-section-container elegant-section">
+            <div class="dual-column-section">
+                <!-- Left Column - Applicant Data -->
+                <div class="form-column">
+                    <div class="form-section elegant-card">
+                        <div class="section-header-decor">
+                            <h2><i class="fas fa-user-tie"></i> Data Pemohon</h2>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <div class="label-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <label for="nama_pemohon">Nama Lengkap Pemohon</label>
+                                </div>
+                                <input type="text" id="nama_pemohon" name="nama_pemohon" class="elegant-input" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="label-with-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <label for="no_telepon">Nomor Telepon/HP</label>
+                                </div>
+                                    <input type="tel" id="no_telepon" name="no_telepon" class="elegant-input" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="label-with-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <label for="alamat_pemohon">Alamat Pemohon</label>
+                                </div>
+                                    <textarea id="alamat_pemohon" name="alamat_pemohon" rows="3" class="elegant-textarea" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Taxpayer Data -->
+                <div class="form-column">
+                    <div class="form-section elegant-card">
+                        <div class="section-header-decor">
+                            <h2><i class="fas fa-file-invoice-dollar"></i> Data Wajib Pajak</h2>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">    
+                                <div class="label-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <label for="nama_wajib_pajak">Nama Wajib Pajak</label>
+                                </div>
+                                <input type="text" id="nama_wajib_pajak" name="nama_wajib_pajak" class="elegant-input" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="label-with-icon">
+                                    <i class="fas fa-map-signs"></i>
+                                    <label for="kelurahan">Desa/Kelurahan</label>
+                                </div>
+                                    <input type="text" id="kelurahan" name="kelurahan" class="elegant-input" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="label-with-icon">
+                                    <i class="fas fa-map-pin"></i>
+                                    <label for="kecamatan">Kecamatan</label>
+                                </div>
+                                <input type="text" id="kecamatan" name="kecamatan" class="elegant-input" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="label-with-icon">
+                                    <i class="fas fa-city"></i>
+                                    <label for="kabupaten_kota">Kabupaten/Kota</label>
+                                </div>
+                                    <input type="text" id="kabupaten_kota" name="kabupaten_kota" class="elegant-input" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="label-with-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <label for="alamat_wajib_pajak">Alamat Wajib Pajak</label>
+                                </div>
+                                <textarea id="alamat_wajib_pajak" name="alamat_wajib_pajak" rows="3" class="elegant-textarea" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+
+        <!-- Property Section - Collapsible -->
+        <div class="form-container elegant-section">
+            <div class="form-section-collapsible elegant-card">
+                <div class="section-header" onclick="toggleSection('lokasi-properti')">
+                    <h2><i class="fas fa-building"></i> Lokasi Dan Data Properti</h2>
+                    <span class="toggle-icon" id="icon-lokasi-properti">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
+                <div class="section-content" id="content-lokasi-properti" style="display:none">
+                    <div class="two-column-grid">
+                        <div class="column">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <div class="label-with-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <label for="Alamatop">Alamat Objek Pajak</label>
+                                    </div>
+                                        <input type="text" id="Alamatop" name="Alamatop" class="elegant-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label-with-icon">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                        <label for="kampungop">Kampung</label>
+                                    </div>
+                                        <input type="text" id="kampungop" name="kampungop" class="elegant-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label-with-icon">
+                                        <i class="fas fa-map-signs"></i>
+                                        <label for="kelurahanop">Kelurahan/Desa</label>
+                                    </div>
+                                        <input type="text" id="kelurahanop" name="kelurahanop" class="elegant-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label-with-icon">
+                                        <i class="fas fa-map-pin"></i>
+                                        <label for="kecamatan">Kecamatan</label>
+                                    </div>
+                                    <input type="text" id="kecamatanop" name="kecamatanop" class="elegant-input" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="column">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <div class="label-with-icon">
+                                        <i class="fas fa-hashtag"></i>
+                                        <label for="nop">Nomor Objek Pajak (NOP)</label>
+                                    </div>
+
+                                    <div class="input-with-icon">
+                                        <input type="text" id="nop" name="nop" class="elegant-input">
+                                    </div>
+                                </div>                    
+                                <div class="form-group">      
+                                    <div class="label-with-icon">
+                                        <i class="fas fa-user-check"></i>
+                                        <label for="atas_nama">Atas Nama (Sertifikat)</label>
+                                    </div>
+                                        <input type="text" id="atas_nama" name="atas_nama" class="elegant-input">
+                                </div>
+                                <div class="form-group">
+                                    <div class="label-with-icon">
+                                        <i class="fas fa-vector-square"></i>
+                                        <label for="luas_tanah">Luas Tanah (m²)</label>
+                                    </div>
+                                        <input type="number" id="luas_tanah" name="luas_tanah" min="0" step="0.01" value="0" class="elegant-input">
+                                </div>
+                                <div class="form-group">
+                                    <div class="label-with-icon">
+                                        <i class="fas fa-ruler-combined"></i>
+                                        <label for="luas_bangunan">Luas Bangunan (m²)</label>
+                                    </div>
+                                        <input type="number" id="luas_bangunan" name="luas_bangunan" min="0" step="0.01" value="0" class="elegant-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional Notes Textarea -->
+                    <div class="full-width-container">
+                        <div class="form-group full-width">
+                            <div class="label-with-icon">
+                                <i class="fas fa-edit"></i>
+                                <label for="lainnya">Keterangan Tambahan</label>
+                            </div>
+                                <textarea id="lainnya" name="lainnya" rows="3" class="keterangan-textarea elegant-textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Validation Date Section -->
+        <div class="form-section elegant-card">
+            <div class="form-group">
+                <label for="tanggal_validasi">Tanggal Validasi</label>
+                <div class="input-with-icon">
+                    <input type="date" id="tanggal_validasi" name="tanggal_validasi" class="elegant-input" required>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form Actions -->
+        <div class="form-actions elegant-actions">
+            <button type="submit" class="btn-submit elegant-btn">
+                <i class="fas fa-qrcode"></i> Buat Kode Validasi
+            </button>
+            <button type="reset" class="btn-reset elegant-btn">
+                <i class="fas fa-redo"></i> Reset Form
+            </button>
+        </div>
+        
+        <!-- Validation Result -->
+        <div id="hasilValidasi" class="validation-result elegant-result" style="display: none;">
+            <div class="result-header">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h3>Kode Validasi Berhasil Dibuat</h3>
+            </div>
+            <div class="validation-code">
+                <span id="kodeValidasi"></span>
+            </div>
+            <p class="result-footer">Simpan kode ini untuk verifikasi selanjutnya.</p>
+        </div>
+        
+        <!-- Save Button (hidden initially) -->
+        <div class="form-actions elegant-actions" id="saveButtonContainer" style="display: none;">
+            <button type="button" class="btn-simpan elegant-btn">
+                <i class="fas fa-save"></i> Simpan Permohonan
+            </button>
+        </div>
+    </form>
+</div>
+</div>
+
+<!--------------->
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Status Validasi PPATK</h6>
+        <div>
+            <button class="btn btn-primary btn-sm" id="refreshButton">
+                <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <!-- Filter Form -->
+        <form id="filterForm" class="mb-4">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="statusFilter">Status</label>
+                    <select id="statusFilter" name="status" class="form-control">
+                        <option value="">Semua Status</option>
+                        <option value="unused">Tidak Dipakai</option>
+                        <option value="used">Sudah Dipakai</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="search">Pencarian</label>
+                    <input type="text" id="search" name="search" class="form-control" placeholder="Cari...">
+                </div>
+                <div class="col-md-2">
+                    <label for="itemsPerPage">Data per halaman</label>
+                    <select id="itemsPerPage" class="form-control">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-filter"></i> Filter
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" style="display: none;" class="text-center my-4">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <p>Memuat data...</p>
+        </div>
+
+        <!-- Data Table -->
+        <div class="table-responsive">
+            <table id="StatusValidTable" class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>No. Validasi</th>
+                        <th>NOP PBB</th>
+                        <th>User ID</th>
+                        <th>Nama Pemohon</th>
+                        <th>Nama Wajib Pajak</th>
+                        <th>Sertifikat (Atas Nama)</th>
+                        <th>Nomor Telepon</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class="data-masuk" style="cursor: pointer;">
+                    <!-- Data will be loaded here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="d-flex justify-content-between align-items-center mt-3">
+            <!-- Pagination will be loaded here -->
+        </div>
+    </div>
+</div>
+
+<!-- Detail Modal -->
+<div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Detail Validasi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Detail content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+    <!-- Tempat untuk menampilkan PDF -->
+    <div id="pdfContainer">
+        <!-- PDF akan dimuat di sini setelah tombol "View Dokumen" diklik -->
+    </div>
+<!-- Footer berada di dalam page-wrapper -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>2024 BAPPENDA Kabupaten Bogor</p>
+    </div>
+    <div class="footer-links">
+        <a href="#ini_link_ngarah_ke_linkedin">Farras</a>
+        <a href="#ini_link_ngarah_ke_linkedin">Vendor</a>
+    </div>
+</footer>
+</div>         
+<!-- Overlay untuk konfirmasi log-out -->
+<div id="logout-overlay" class="logout-overlay">
+    <div class="logout-confirm">
+        <div class="icon-container">
+            <i class="fas fa-exclamation"></i>
+        </div>
+        <p>Apakah anda yakin?<br><span>Keluar dari sistem?</span></p>
+        <button id="cancel-logout">Batal</button>
+        <button id="confirm-logout">Iya</button>
+    </div>
+</div>
+
+    <!--script pendukung-->
+<script src="../../design-n-script/script_frontback_java/form_ppatk_validasipermohonan.js"></script>
+<script src="../../design-n-script/script_frontback_java/frontend_bookingsspd.js"></script>
+<script src="../../design-n-script/script_frontback_java/header_script.js"></script>
+<script src="../../design-n-script/script_frontback_java/fungsi.js"></script>
+  <!--backend-->
+<script src="../../script-backend/header-backend.js"></script>
+<script src="../../script-backend/ppatk_permohonan.js"></script>
+<script src="../../script-backend/ppatk_statusvalidasi.js"></script>
+</body>
+</html>

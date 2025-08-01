@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peneliti Dashboard|BAPPENDA</title>
+  <link rel="icon" href="/asset/TitleE-bphtb.png" type="image/png">
+    <!---->
+  <link rel="stylesheet" href="/design-n-script/design_css/asset_pelengkap.css">
+    <!---->
+    <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/design_dashboard.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/design_table/table_design.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/design_table/peneliti_kasie_design.css">
+    <!---->
+  <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/header_design.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/design_sidebar.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/design_text/design_text.css">
+
+</head>
+<body>
+  <!-- Header Section -->
+<header>
+  <div class="header-left">
+      <div class="logo-container">
+          <img src="/asset/Logo_image.svg" alt="Logo" class="logo">
+      </div>
+      <div id="kabupaten-bogor">
+          <div class="teks-container">
+              <span class="large-text">Bappenda</span>
+              <span class="small-text">Kabupaten Bogor</span>
+          </div>
+          <!-- Gambar dekorasi di sebelah kanan -->
+          <img src="/asset/dekorasi_icon.png" alt="Dekorasi" class="dekorasi-image">
+      </div>            
+      <!-- Header Title -->
+      <div class="header-title">Paraf Kasie SSPD</div>
+  </div>
+          
+  <div class="header-right">
+  <!--profile section-->
+  <div class="profile-pic-container">
+    <img src="" alt="Profile" class="fotoprofil profile-pic">
+    <div id="profile-overlay" class="profile-overlay">
+        <div class="overlay-content">
+            <img src="" alt="Profile Picture" class="fotoprofil overlay-profile-pic" width="30">
+            <div class="profile-info">
+                <h4><span class="nama">Load</span></h4>
+                <p><span class="userid">Load</span></p>
+            </div>
+            <div class="overlay-buttons">
+                <button class="profile-btn" id="profileButton" class="profile-button">Profil</button>
+                <button class="AUT logout-button">Keluar</button>
+            </div>
+        </div>
+    </div>
+  </div>  
+
+    <!--member section-->        
+    <div class="members-count" id="divisiMemberCount">
+        <span id="thin-text">member</span> <br>
+        <div class="member-overlay" id="member-overlay">
+            <ul class="member-list" id="member-list">
+            <!-- Member list will be populated here -->
+            </ul>
+        </div>
+    </div>
+</div>
+</header>
+<!--end header-->
+<!---->
+<!---->
+<!--start aside-->
+<aside class="sidebar">
+  <div class="menu-container">
+    <div class="box">
+        <div class="menu-item" id="dashboard_page">
+            <a href="admin-dashboard.html" class="icon-text-wrapper">
+                <i class="fa fa-home sidebar-icon"></i>
+                <span class="sidebar-text">Dashboard</span>
+            </a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-gavel sidebar-icon"></i>
+                <span class="sidebar-text">Verifikasi SSPD</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="../Verifikasi_sspd/verifikasi-data.html" id="pemutakhiran_data_ppat">Verifikasi SSPD</a>
+            <a href="../admins_Peneliti/adminv_verifikasisspd/adminv_Verifikasi_SSPD/admin_verifikasisspd_off.html" id="status_ppat_1">Verifikasi SSPD Offline</a>
+            <a href="../ParafKasie-sspd/paraf-kasie.html" id="">Kasie Verifikasi SSPD</a>
+            <a href="../admins_Peneliti/adminv_verifikasisspd/adminv_Kasie_Verifikasi_SSPD/admin_kasie_verifikasisspd_off.html" id="">Kasie Verifikasi SSPD Offline</a>
+            <a href="../admins_Peneliti/adminv_verifikasisspd/adminv_Proses_SKPD_KurangBayar/admin_proses_SKPD_kurangbayar.html" id="">Proses SKPD Kurang Bayar</a>
+            <a href="../admins_Peneliti/adminv_verifikasisspd/adminv_Proses_SKPD_KurangBayar/admin_proses_SKPD_kurangbayar_off.html" id="">Proses SKPD Kurang Bayar Offline</a>
+        </div>
+      </div>
+      <div class="box">
+        <div class="menu-item dropdown laporan-bulanan" data-dropdown="true">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-television sidebar-icon"></i>
+                <span class="sidebar-text">Monitoring SSPD</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="../admins_Peneliti/adminv_monitoringsspd/adminv_Monitoring_Verifikasi_SSPD/admin_monitoring_verifikasisspd.html">Monitoring Verifikasi SSPD</a>
+            <a href="../admins_Peneliti/adminv_monitoringsspd/adminv_Monitoring_SKPD_KurangBayar/admin_monitoring_skpd_kurangbayar.html">Monitoring SKPD Kurang Bayar</a>
+        </div>
+      </div>
+    </div>
+<!--other section must be on all html-->
+  <div class="box">
+      <div class="menu-item" id="faq_page">
+          <a href="#faqpge" class="icon-text-wrapper">
+              <i class="fa fa-question-circle sidebar-icon"></i>
+              <span class="sidebar-text">FAQ</span>
+          </a>
+      </div>
+  </div>
+  <div class="AUT logout-box">
+      <div class="menu-item" id="logout_page">
+          <div href="#logout" class="icon-text-wrapper">
+              <i class="fa fa-sign-out sidebar-icon"></i>
+              <span class="sidebar-text">Log Out</span>
+          </div>
+      </div>
+  </div>
+  </div>
+</aside>
+<!-- End content aside-->
+  <!---->
+  <!---->
+  <!-- MAIN -->
+  <main class="main-content">
+    <button class="btn viewpdf" onclick="viewDocument()">View Dokumen</button> <!-- Tombol untuk melihat dokumen -->
+    <div id="signatureDropdown" class="dropdown-container-ttd">
+    <button id="toggleSignatureButton" class="btn-toggle-signature">Tanda Tangan</button>
+    
+    <!-- Form Tanda Tangan yang disembunyikan -->
+    <div id="signatureFormContainer" class="signature-form-container" style="display: none;">
+        <form id="signatureForm" enctype="multipart/form-data">
+        <label for="signature">Upload Gambar Tanda Tangan:</label>
+        <input type="file" name="signature" id="signature" accept="image/*"  required />
+        <br />
+        <label for="name_tandatangan">Nama Pemilik Tanda Tangan:</label>
+        <input type="text" name="name" id="name_tandatangan" placeholder="isikan nama lengkap beserta gelar" required />
+        <br />
+        <button type="submit">Upload Tanda Tangan</button>
+        <div id="resultBox" class="result-box">
+            <!-- Daftar tanda tangan yang akan dimuat di sini -->
+        </div>
+        <div id="signatureDetailBox" class="signature-detail-box" style="display: none;">
+            <!-- Menampilkan detail tanda tangan yang diklik -->
+            <p id="signatureName"></p>
+            <img id="signatureImage" src="" alt="Tanda Tangan" />
+            <button id="useSignatureBtn">Pakai format ini</button> <!--tambahkan ini-->
+        </div>
+        </form>
+    </div>
+    </div>
+
+<!-- Canvas overlay untuk mengedit posisi tanda tangan -->
+<canvas id="canvasOverlay" style="display: none;"></canvas>
+
+<button id="saveEditBtn" style="display: none;">Simpan Pengeditan</button>
+
+    <table id="penelitikasieTable">
+        <thead>
+            <tr>
+                <th>No. Registrasi</th>
+                <th>No. Booking</th>
+                <th>NOP PBB</th>
+                <th>Tahun AJB</th>
+                <th>User ID</th>
+                <th>Nama Wajib Pajak</th>
+                <th>Nama Pemilik Objek Pajak</th>
+                <th>Status</th>
+                <th>Track Status</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody class="data-masuk" style="cursor: pointer;">
+            <!-- Data akan dimasukkan ke sini oleh JavaScript -->
+        </tbody>
+    </table>
+</main>
+    <!-- Footer berada di dalam page-wrapper -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>2024 BAPPENDA Kabupaten Bogor</p>
+        </div>
+        <div class="footer-links">
+            <a href="#ini_link_ngarah_ke_linkedin">Farras</a>
+            <a href="#ini_link_ngarah_ke_linkedin">Vendor</a>
+        </div>
+    </footer>
+</div>         
+<!-- Overlay untuk konfirmasi log-out -->
+<div id="logout-overlay" class="logout-overlay">
+    <div class="logout-confirm">
+        <div class="icon-container">
+            <i class="fas fa-exclamation"></i>
+        </div>
+        <p>Apakah anda yakin?<br><span>Keluar dari sistem?</span></p>
+        <button id="cancel-logout">Batal</button>
+        <button id="confirm-logout">Iya</button>
+    </div>
+</div>
+<!--script front-->
+<script src="/design-n-script/script_frontback_java/header_script.js"></script>
+<script src="/design-n-script/script_frontback_java/fungsi.js"></script>
+  <!---->
+  <script src="/script-backend/header-backend.js"></script>
+  <script src="../../script-backend/peneliti_paraf.js"></script>
+<!--script pengedit pdf-->
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LTB|BAPPENDA</title>
+  <link rel="icon" href="/asset/TitleE-bphtb.png" type="image/png">
+    <!---->
+  <link rel="stylesheet" href="/design-n-script/design_css/asset_pelengkap.css">
+    <!---->
+    <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/design_dashboard.css">
+    <!--data yang difokuskan-->
+    <link rel="stylesheet" href="/design-n-script/design_css/tolak_design.css">
+    <link rel="stylesheet" href="../../design-n-script/design_css/design_table/table_design.css">
+    <!---->
+  <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/header_design.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/sidebar-dashboard/design_sidebar.css">
+    <link rel="stylesheet" href="/design-n-script/design_css/design_text/design_text.css">
+
+    <!-- Notification Styles -->
+    <style>
+        .notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            max-width: 400px;
+        }
+
+        .notification {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .notification-message {
+            font-size: 12px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .notification-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .notification.success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .notification.warning {
+            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
+        }
+
+        .notification.info {
+            background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+        }
+
+        /* Badge for new data indicator */
+        .new-data-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Sound notification */
+        .notification-sound {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+  <!-- Header Section -->
+<header>
+  <div class="header-left">
+      <div class="logo-container">
+          <img src="/asset/Logo_image.svg" alt="Logo" class="logo">
+      </div>
+      <div id="kabupaten-bogor">
+          <div class="teks-container">
+              <span class="large-text">Bappenda</span>
+              <span class="small-text">Kabupaten Bogor</span>
+          </div>
+          <!-- Gambar dekorasi di sebelah kanan -->
+          <img src="/asset/dekorasi_icon.png" alt="Dekorasi" class="dekorasi-image">
+      </div>            
+      <!-- Header Title -->
+      <div class="header-title">Terima Berkas SSPD</div>
+  </div>
+          
+  <div class="header-right">
+  <!--profile section-->
+<div class="profile-pic-container">
+    <img src="" alt="Profile" class="fotoprofil profile-pic">
+    <div id="profile-overlay" class="profile-overlay">
+        <div class="overlay-content">
+            <div class="profile-header">
+                <img src="" alt="Profile Picture" class="fotoprofil overlay-profile-pic">
+                <div class="profile-info">
+                    <h4><span class="nama">Load</span></h4>
+                    <p><span class="userid">Load</span></p>
+                </div>
+            </div>
+            <div class="overlay-buttons">
+                <a href="/profile.html">
+                <button class="profile-btn" id="profileButton"> 
+                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" fill="currentColor"/>
+                        <path d="M12 14C7.58172 14 4 17.5817 4 22H20C20 17.5817 16.4183 14 12 14Z" fill="currentColor"/>
+                    </svg>
+                    Profil
+                </button>
+                </a>
+                <button class="AUT logout-button">
+                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 16L21 12M21 12L17 8M21 12H7M13 16V17C13 18.6569 11.6569 20 10 20H6C4.34315 20 3 18.6569 3 17V7C3 5.34315 4.34315 4 6 4H10C11.6569 4 13 5.34315 13 7V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Keluar
+                </button>
+            </div>
+        </div>
+    </div>
+  </div>
+    <!--member section-->        
+    <div class="members-count" id="divisiMemberCount">
+        <span id="thin-text">member</span> <br>
+        <div class="member-overlay" id="member-overlay">
+            <ul class="member-list" id="member-list">
+            <!-- Member list will be populated here -->
+            </ul>
+        </div>
+    </div>
+</div>
+</header>
+<!--end header-->
+<!---->
+<!---->
+<!--start aside-->
+<aside class="sidebar">
+  <div class="menu-container">
+    <div class="box">
+        <div class="menu-item" id="dashboard_page">
+            <a href="../../ltb-dashboard.html" class="icon-text-wrapper">
+                <i class="fa fa-home sidebar-icon"></i>
+                <span class="sidebar-text">Dashboard</span>
+            </a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="menu-item dropdown" data-dropdown="true">
+            <div class="icon-text-wrapper dropdown-toggle">
+                <i class="fa fa-folder sidebar-icon"></i>
+                <span class="sidebar-text">Terima Berkas SSPD</span>
+            </div>
+        </div>
+        <div class="dropdown-content">
+            <a href="terima-berkas-sspd.html">Permohonan Validasi SSPD</a>
+        </div>
+    </div>
+<!--other section must be on all html-->
+  <div class="box">
+      <div class="menu-item" id="faq_page">
+          <a href="#faqpge" class="icon-text-wrapper">
+              <i class="fa fa-question-circle sidebar-icon"></i>
+              <span class="sidebar-text">FAQ</span>
+          </a>
+      </div>
+  </div>
+  <div class="AUT logout-box">
+      <div class="menu-item" id="logout_page">
+          <div href="#logout" class="icon-text-wrapper">
+              <i class="fa fa-sign-out sidebar-icon"></i>
+              <span class="sidebar-text" style="cursor: pointer;">Log Out</span>
+          </div>
+      </div>
+  </div>
+  </div>
+</aside>
+<!-- End content aside-->
+  <!---->
+  <!---->
+  <!-- MAIN -->
+  <main class="main-content">
+    <button class="btn viewpdf" onclick="viewDocument()">View Dokumen</button> <!-- Tombol untuk melihat dokumen -->
+    <button class="btn tolak" id="tolakdokument" onclick="showRejectOverlay()">Tolak</button>
+    <!-- Tombol untuk melihat dokumen -->
+    <!-- Dropdown untuk memilih file -->
+    <table id="ltbBerkasTable">
+        <thead>
+            <tr>
+                <th>No. Registrasi</th>
+                <th>No. Booking</th>
+                <th>NOP PBB</th>
+                <th>Nama Wajib Pajak</th>
+                <th>Nama Pemilik Objek Pajak</th>
+                <th>Tanggal Terima</th>
+                <th>Status</th>
+                <th>Track Status</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody class="data-masuk" style="cursor: pointer;">
+            <!-- Data akan dimasukkan ke sini oleh JavaScript -->
+        </tbody>
+    </table>
+</main>
+
+<!-- Notification Container -->
+<div class="notification-container" id="notificationContainer"></div>
+
+<!-- Audio for notification sound -->
+<audio id="notificationSound" class="notification-sound">
+    <source src="/asset/notification.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Tempat untuk menampilkan PDF -->
+<div id="pdfContainer">
+    <!-- PDF akan dimuat di sini setelah tombol "View Dokumen" diklik -->
+</div>
+
+<!-- Overlay untuk konfirmasi penolakan -->
+<div id="overlay" class="overlay_notifikasi">
+    <div class="overlay-content-tolak">
+        <p>Apakah Anda yakin ingin menolak dokumen ini?</p>
+        <textarea id="rejectionReason" placeholder="Masukkan alasan penolakan"></textarea>
+        <div>
+            <button id="confirmReject" onclick="confirmReject()">Iya</button>
+            <button id="cancelReject" onclick="cancelReject()">Batal</button>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer berada di dalam page-wrapper -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>2024 BAPPENDA Kabupaten Bogor</p>
+        </div>
+        <div class="footer-links">
+            <a href="#ini_link_ngarah_ke_linkedin">Farras</a>
+            <a href="#ini_link_ngarah_ke_linkedin">Vendor</a>
+        </div>
+    </footer>
+</div>         
+<!-- Overlay untuk konfirmasi log-out -->
+<div id="logout-overlay" class="logout-overlay">
+    <div class="logout-confirm">
+        <div class="icon-container">
+            <i class="fas fa-exclamation"></i>
+        </div>
+        <p>Apakah anda yakin?<br><span>Keluar dari sistem?</span></p>
+        <button id="cancel-logout">Batal</button>
+        <button id="confirm-logout">Iya</button>
+    </div>
+</div>
+
+<!-- Notification Settings Panel -->
+<div id="notificationSettings" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 10000;">
+    <h3>Pengaturan Notifikasi</h3>
+    <div style="margin: 15px 0;">
+        <label>
+            <input type="checkbox" id="enableSound" checked> Aktifkan Suara
+        </label>
+    </div>
+    <div style="margin: 15px 0;">
+        <label>
+            <input type="checkbox" id="enableNotifications" checked> Aktifkan Notifikasi
+        </label>
+    </div>
+    <div style="margin: 15px 0;">
+        <label>Interval Pengecekan (detik):</label>
+        <input type="number" id="checkInterval" value="30" min="10" max="300" style="width: 80px; margin-left: 10px;">
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="saveNotificationSettings()" style="margin-right: 10px;">Simpan</button>
+        <button onclick="closeNotificationSettings()">Tutup</button>
+    </div>
+</div>
+
+<!-- Notification Controls -->
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9998;">
+    <button onclick="showNotificationSettings()" style="background: #007bff; color: white; border: none; padding: 10px; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+        <i class="fa fa-cog"></i>
+    </button>
+</div>
+
+<!-- Notification Settings Management -->
+function showNotificationSettings() {
+    document.getElementById('notificationSettings').style.display = 'block';
+    loadNotificationSettings();
+}
+
+function closeNotificationSettings() {
+    document.getElementById('notificationSettings').style.display = 'none';
+}
+
+function loadNotificationSettings() {
+    const settings = JSON.parse(localStorage.getItem('notificationSettings') || '{}');
+    document.getElementById('enableSound').checked = settings.enableSound !== false;
+    document.getElementById('enableNotifications').checked = settings.enableNotifications !== false;
+    document.getElementById('checkInterval').value = settings.checkInterval || 30;
+}
+
+function saveNotificationSettings() {
+    const settings = {
+        enableSound: document.getElementById('enableSound').checked,
+        enableNotifications: document.getElementById('enableNotifications').checked,
+        checkInterval: parseInt(document.getElementById('checkInterval').value)
+    };
+    
+    localStorage.setItem('notificationSettings', JSON.stringify(settings));
+    
+    // Update notification system with new settings
+    if (notificationSystem) {
+        notificationSystem.updateSettings(settings);
+    }
+    
+    closeNotificationSettings();
+    showNotification('success', 'Pengaturan Disimpan', 'Pengaturan notifikasi telah diperbarui.');
+}
+
+// Enhanced Notification System
+class NotificationSystem {
+    constructor() {
+        this.container = document.getElementById('notificationContainer');
+        this.sound = document.getElementById('notificationSound');
+        this.lastDataCount = 0;
+        this.lastDataHash = '';
+        this.notificationQueue = [];
+        this.isProcessing = false;
+        this.monitoringInterval = null;
+        this.settings = this.loadSettings();
+    }
+
+    loadSettings() {
+        const saved = JSON.parse(localStorage.getItem('notificationSettings') || '{}');
+        return {
+            enableSound: saved.enableSound !== false,
+            enableNotifications: saved.enableNotifications !== false,
+            checkInterval: saved.checkInterval || 30
+        };
+    }
+
+    updateSettings(newSettings) {
+        this.settings = { ...this.settings, ...newSettings };
+        
+        // Restart monitoring with new interval
+        if (this.monitoringInterval) {
+            clearInterval(this.monitoringInterval);
+            this.startMonitoring();
+        }
+    }
+
+    // Show notification
+    showNotification(type, title, message, duration = 5000) {
+        if (!this.settings.enableNotifications) return;
+        
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        
+        notification.innerHTML = `
+            <div class="notification-icon">
+                ${this.getIcon(type)}
+            </div>
+            <div class="notification-content">
+                <div class="notification-title">${title}</div>
+                <div class="notification-message">${message}</div>
+            </div>
+            <button class="notification-close" onclick="this.parentElement.remove()">
+                <i class="fa fa-times"></i>
+            </button>
+        `;
+
+        this.container.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+
+        // Play sound if enabled
+        if (this.settings.enableSound) {
+            this.playNotificationSound();
+        }
+
+        // Auto remove
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 300);
+        }, duration);
+    }
+
+    // Get icon based on notification type
+    getIcon(type) {
+        const icons = {
+            success: '<i class="fa fa-check"></i>',
+            warning: '<i class="fa fa-exclamation-triangle"></i>',
+            error: '<i class="fa fa-times-circle"></i>',
+            info: '<i class="fa fa-info-circle"></i>',
+            new: '<i class="fa fa-bell"></i>'
+        };
+        return icons[type] || icons.info;
+    }
+
+    // Play notification sound
+    playNotificationSound() {
+        try {
+            // Try to play the audio file first
+            this.sound.currentTime = 0;
+            this.sound.play().catch(e => {
+                console.log('Audio file not available, using Web Audio API');
+                this.playBeepSound();
+            });
+        } catch (e) {
+            console.log('Audio not available, using Web Audio API');
+            this.playBeepSound();
+        }
+    }
+
+    // Generate beep sound using Web Audio API
+    playBeepSound() {
+        try {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            oscillator.frequency.setValueAtTime(600, audioContext.currentTime + 0.1);
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.2);
+        } catch (e) {
+            console.log('Web Audio API not supported');
+        }
+    }
+
+    // Check for new data by comparing data hash
+    checkForNewData() {
+        const currentData = this.getCurrentData();
+        const currentHash = this.generateDataHash(currentData);
+        
+        if (currentHash !== this.lastDataHash && this.lastDataHash !== '') {
+            const newCount = currentData.length - this.lastDataCount;
+            if (newCount > 0) {
+                this.showNotification(
+                    'new',
+                    'Data Baru Diterima!',
+                    `${newCount} berkas SSPD baru telah diterima dan siap untuk diproses.`,
+                    8000
+                );
+            }
+        }
+        
+        this.lastDataCount = currentData.length;
+        this.lastDataHash = currentHash;
+    }
+
+    // Get current data from table
+    getCurrentData() {
+        const tableBody = document.querySelector('#ltbBerkasTable tbody');
+        if (!tableBody) return [];
+        
+        const rows = Array.from(tableBody.children);
+        return rows.map(row => {
+            const cells = Array.from(row.children);
+            return {
+                noRegistrasi: cells[0]?.textContent || '',
+                noBooking: cells[1]?.textContent || '',
+                nopPbb: cells[2]?.textContent || '',
+                namaWajibPajak: cells[3]?.textContent || '',
+                namaPemilik: cells[4]?.textContent || '',
+                tanggalTerima: cells[5]?.textContent || '',
+                status: cells[6]?.textContent || '',
+                trackStatus: cells[7]?.textContent || '',
+                keterangan: cells[8]?.textContent || ''
+            };
+        });
+    }
+
+    // Generate hash for data comparison
+    generateDataHash(data) {
+        const dataString = JSON.stringify(data);
+        let hash = 0;
+        for (let i = 0; i < dataString.length; i++) {
+            const char = dataString.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // Convert to 32-bit integer
+        }
+        return hash.toString();
+    }
+
+    // Start real-time monitoring
+    startMonitoring() {
+        // Check every X seconds for new data (based on settings)
+        this.monitoringInterval = setInterval(() => {
+            this.checkForNewData();
+        }, this.settings.checkInterval * 1000);
+
+        // Also check when page becomes visible
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                this.checkForNewData();
+            }
+        });
+
+        // Check on page load after a delay
+        setTimeout(() => {
+            this.checkForNewData();
+        }, 2000);
+
+        console.log(`Real-time monitoring started with ${this.settings.checkInterval}s interval`);
+    }
+
+    // Stop monitoring
+    stopMonitoring() {
+        if (this.monitoringInterval) {
+            clearInterval(this.monitoringInterval);
+            this.monitoringInterval = null;
+        }
+    }
+
+    // Show different types of notifications
+    showSuccessNotification(message) {
+        this.showNotification('success', 'Berhasil!', message);
+    }
+
+    showWarningNotification(message) {
+        this.showNotification('warning', 'Peringatan', message);
+    }
+
+    showErrorNotification(message) {
+        this.showNotification('error', 'Error', message);
+    }
+
+    showInfoNotification(message) {
+        this.showNotification('info', 'Informasi', message);
+    }
+
+    // Show new data notification
+    showNewDataNotification(count, details = '') {
+        const message = details || `${count} berkas SSPD baru telah diterima dan siap untuk diproses.`;
+        this.showNotification('new', 'Data Baru Diterima!', message, 8000);
+    }
+
+    // Update data count and check for changes
+    updateDataCount() {
+        const currentData = this.getCurrentData();
+        const currentCount = currentData.length;
+        
+        if (currentCount > this.lastDataCount && this.lastDataCount > 0) {
+            const newCount = currentCount - this.lastDataCount;
+            this.showNewDataNotification(newCount);
+        }
+        
+        this.lastDataCount = currentCount;
+    }
+}
+
+// Initialize notification system
+let notificationSystem;
+
+document.addEventListener('DOMContentLoaded', () => {
+    notificationSystem = new NotificationSystem();
+    
+    // Show welcome notification
+    setTimeout(() => {
+        notificationSystem.showInfoNotification(
+            'Sistem notifikasi real-time telah aktif. Anda akan diberitahu ketika ada data baru.'
+        );
+    }, 1000);
+
+    // Start monitoring after a delay to allow data to load
+    setTimeout(() => {
+        notificationSystem.startMonitoring();
+    }, 3000);
+});
+
+// Global function to show notifications from other scripts
+window.showNotification = (type, title, message) => {
+    if (notificationSystem) {
+        notificationSystem.showNotification(type, title, message);
+    }
+};
+
+// Function to manually trigger new data notification (for testing)
+window.simulateNewData = (count = 1) => {
+    if (notificationSystem) {
+        notificationSystem.showNewDataNotification(count);
+    }
+};
+
+// Function to test all notification types
+window.testNotifications = () => {
+    if (notificationSystem) {
+        notificationSystem.showSuccessNotification('Operasi berhasil diselesaikan!');
+        setTimeout(() => notificationSystem.showWarningNotification('Peringatan: Data hampir penuh'), 2000);
+        setTimeout(() => notificationSystem.showErrorNotification('Error: Koneksi terputus'), 4000);
+        setTimeout(() => notificationSystem.showInfoNotification('Info: Sistem sedang maintenance'), 6000);
+    }
+};
+
+// Function to update data count (call this when data is loaded/updated)
+window.updateNotificationDataCount = () => {
+    if (notificationSystem) {
+        notificationSystem.updateDataCount();
+    }
+};
+
+// Override existing data loading functions to trigger notifications
+const originalLoadData = window.loadData || function() {};
+window.loadData = function() {
+    const result = originalLoadData.apply(this, arguments);
+    
+    // Trigger notification check after data loads
+    setTimeout(() => {
+        if (notificationSystem) {
+            notificationSystem.updateDataCount();
+        }
+    }, 1000);
+    
+    return result;
+};
+
+// Listen for table updates
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.type === 'childList' && mutation.target.id === 'ltbBerkasTable') {
+            setTimeout(() => {
+                if (notificationSystem) {
+                    notificationSystem.updateDataCount();
+                }
+            }, 500);
+        }
+    });
+});
+
+// Start observing table changes
+document.addEventListener('DOMContentLoaded', () => {
+    const table = document.getElementById('ltbBerkasTable');
+    if (table) {
+        observer.observe(table, { childList: true, subtree: true });
+    }
+});
+</script>
+
+<!--script front-->
+<script src="../../design-n-script/script_frontback_java/header_script.js"></script>
+<script src="../../design-n-script/script_frontback_java/fungsi.js"></script>
+<script src="../../design-n-script/script_frontback_java/ltb_script_tampilan.js"></script>
+  <!--backend-->
+  <script src="../../script-backend/tb_ppatksspd.js"></script>
+  <!---->
+<script src="../../script-backend/header-backend.js"></script>
+</body>
+</html>

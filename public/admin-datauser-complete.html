@@ -1,0 +1,679 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data User Belum Lengkap</title>
+  <link rel="icon" href="asset/TitleE-bphtb.png" type="image/png">
+  <link rel="stylesheet" href="design-n-script/design_css/design_table/table_design_usercomplete.css">
+    <!---->
+  <link rel="stylesheet" href="design-n-script/design_css/asset_pelengkap.css">
+  <link rel="stylesheet" href="design-n-script/design_css/admin_design.css">
+    <!---->
+    <link rel="stylesheet" href="design-n-script/design_css/sidebar-dashboard/design_dashboard.css">
+    <!---->
+  <link rel="stylesheet" href="design-n-script/design_css/sidebar-dashboard/header_design.css">
+    <link rel="stylesheet" href="design-n-script/design_css/sidebar-dashboard/design_sidebar.css">
+    <link rel="stylesheet" href="design-n-script/design_css/design_text/design_text.css">
+</head>
+<body>
+  <!-- Header Section -->
+<header>
+  <div class="header-left">
+      <div class="logo-container">
+          <img src="asset/Logo_image.svg" alt="Logo" class="logo">
+      </div>
+      <div id="kabupaten-bogor">
+          <div class="teks-container">
+              <span class="large-text">Bappenda</span>
+              <span class="small-text">Kabupaten Bogor</span>
+          </div>
+          <!-- Gambar dekorasi di sebelah kanan -->
+          <img src="asset/dekorasi_icon.png" alt="Dekorasi" class="dekorasi-image">
+      </div>            
+      <!-- Header Title -->
+      <div class="header-title">Dashboard</div>
+  </div>
+          
+  <div class="header-right">
+  <!--profile section-->
+  <div class="profile-pic-container">
+    <img src="" alt="Profile" class="fotoprofil profile-pic">
+    <div id="profile-overlay" class="profile-overlay">
+        <div class="overlay-content">
+            <img src="" alt="Profile Picture" class="fotoprofil overlay-profile-pic" width="30">
+            <div class="profile-info">
+                <h4><span class="nama">Load</span></h4>
+                <p><span class="userid">Load</span></p>
+            </div>
+            <div class="overlay-buttons">
+                <button class="profile-btn" id="profileButton" class="profile-button">Profil</button>
+                <button class="AUT logout-button">Keluar</button>
+            </div>
+        </div>
+    </div>
+  </div>  
+
+    <!--member section-->        
+    <div class="members-count" id="divisiMemberCount">
+        <span id="thin-text">member</span> <br>
+        <div class="member-overlay" id="member-overlay">
+            <ul class="member-list" id="member-list">
+            <!-- Member list will be populated here -->
+            </ul>
+        </div>
+    </div>
+</div>
+</header>
+<!--end header-->
+<!---->
+<!---->
+<!--start aside-->
+<aside class="sidebar">
+  <div class="menu-container">
+  <!-- Item Dashboard dengan hyperlink -->
+  <div class="box">
+      <div class="menu-item" id="dashboard_page">
+          <a href="admin-dashboard.html" class="icon-text-wrapper">
+              <i class="fa fa-home sidebar-icon"></i>
+              <span class="sidebar-text">Dashboard</span>
+          </a>
+      </div>
+  </div>
+<!-- Admin Section -->
+  <!-- Admin Section Start-->
+      <div class="box">
+      <div class="menu-item" id="aplikasi_page">
+          <a href="Admin/Aplikasi/aplikasi-admin.html" class="icon-text-wrapper">
+              <i class="fa fa-window-maximize sidebar-icon"></i>
+              <span class="sidebar-text">Aplikasi</span>
+          </a>
+      </div>
+  </div>
+  <div class="box" onclick="redirectToLink('/Admin/Permohonan Validasi/Permohonan_validasi.html')">
+      <div class="menu-item" id="PO_page">
+          <a href="/Admin/Permohonan Validasi/Permohonan_validasi.html" class="icon-text-wrapper">
+              <i class="fa fa-envelope sidebar-icon"></i>
+              <span class="sidebar-text">Permohonan Validasi</span>
+          </a>
+      </div>
+  </div>
+  <div class="box">
+      <div class="menu-item dropdown" data-dropdown="true" id="referensi_user">
+          <div class="icon-text-wrapper dropdown-toggle">
+              <i class="fa fa-share-alt sidebar-icon"></i>
+              <span class="sidebar-text">Referensi User</span>
+          </div>
+      </div>
+      <div class="dropdown-content">
+          <a href="/Admin/Referensi User/Pemutakhiran Data PPAT/pemutakhiran_data_ppat.html" id="PD_PPAT">Pemutakhiran Data PPAT</a>
+          <a href="/Admin/Referensi User/Status PPAT/status_ppat.html" id="Status_PPAT"> Status PPAT</a>
+      </div>
+  </div>
+  <div class="box">
+    <div class="menu-item dropdown" data-dropdown="true" id="referensi_user">
+        <div class="icon-text-wrapper dropdown-toggle">
+            <i class="fa fa-id-badge sidebar-icon"></i>
+            <span class="sidebar-text">User Data</span>
+        </div>
+    </div>
+    <div class="dropdown-content">
+        <a href="admin-datauser-pending.html" id="PD_PPAT">verifikasi Data User</a>
+        <a href="admin-datauser-complete.html" id="Status_PPAT"> Data User</a>
+    </div>
+</div>
+
+  <div class="box" onclick="redirectToLink('/Admin/Users Group/Users_group.html')">
+      <div class="menu-item" id="UG_page">
+          <a href="/Admin/Users Group/Users_group.html" class="icon-text-wrapper">
+              <i class="fa fa-id-card sidebar-icon"></i>
+              <span class="sidebar-text">Users Group</span>
+          </a>
+      </div>
+  </div>
+  <div class="box" onclick="redirectToLink('/Admin/Group Users/Group_users.html')">
+      <div class="menu-item" id="GU_page">
+          <a href="/Admin/Group Users/Group_users.html" class="icon-text-wrapper">
+              <i class="fa fa-users sidebar-icon"></i>
+              <span class="sidebar-text">Group Users</span>
+          </a>
+      </div>
+  </div>
+  <div class="box" onclick="redirectToLink('/Admin/Group Privilege/Group_privilege.html')">
+      <div class="menu-item" id="GP_page">
+          <a href="/Admin/Group Privilege/Group_privilege.html" class="icon-text-wrapper">
+              <i class="fa fa-filter sidebar-icon"></i>
+              <span class="sidebar-text">Group Privilege</span>
+          </a>
+      </div>
+  </div>
+<!-- Admin End Section -->
+  <!---->
+<div class="toggle-btn" onclick="toggleContainer()">Menu Lain</div>
+  <!-- PPAT SECTION -->
+<div id="side-container" class="container hidden">
+  <div class="tier-box">PPAT</div>
+  <div class="box">
+      <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+          <div class="icon-text-wrapper dropdown-toggle">
+              <i class="fa fa-address-book sidebar-icon"></i>
+              <span class="sidebar-text">Booking SSPD</span>
+          </div>
+      </div>
+      <div class="dropdown-content">
+          <a href="../admins_PPAT/adminv_bookingsspd/adminv_Booking_SSPD_Badan/admin_booking_sspd_b.html" id="Booking_Badan">Booking SSPD Badan</a>
+          <a href="../admins_PPAT/adminv_bookingsspd/adminv_Booking_SSPD_Perorangan/admin_booking_sspd_p.html" id="Booking_Perorangan">Booking SSPD Perorangan</a>
+      </div>
+  </div>
+  <div class="box">
+      <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+          <div class="icon-text-wrapper dropdown-toggle">
+              <i class="fa fa-check-circle sidebar-icon"></i>
+              <span class="sidebar-text">Validasi BPHTB</span>
+          </div>
+      </div>
+      <div class="dropdown-content">
+          <a href="../admins_PPAT/adminv_validasibphtb/adminv_permohonan_Validasi_SSPD/admin_permohonan_validasisspd.html" id="">Permohonan Validasi SSPD</a>
+          <a href="../admins_PPAT/adminv_validasibphtb/adminv_Status_Validasi/admin_status_validasi.html" id="">Status Validasi</a>
+      </div>
+  </div>
+  <div class="box">
+      <div class="menu-item dropdown laporan-bulanan" data-dropdown="true">
+          <div class="icon-text-wrapper dropdown-toggle">
+              <i class="fa fa-folder-open sidebar-icon"></i>
+              <span class="sidebar-text">Laporan Bulanan PPAT</span>
+          </div>
+      </div>
+      <div class="dropdown-content">
+          <a href="../admins_PPAT/adminv_laporanbulananppat/adminv_Input_Akta/admin_input_akta.html">Input Akta</a>
+          <a href="../admins_PPAT/adminv_laporanbulananppat/adminv_Laporan_Rekap_PPAT/admin_laporan_rekapppat.html">Laporan Rekap PPAT</a>
+          <a href="../admins_PPAT/adminv_laporanbulananppat/adminv_Monitoring_Keterlambatan/admin_monitoring_keterlambatan_pembayaran.html">Monitoring Keterlambatan</a>
+          <a href="../admins_PPAT/adminv_laporanbulananppat/adminv_Rincian_Laporan_Bulanan_PPAT/admin_rincian_laporan_bulananppat.html">Rincian Laporan Bulanan PPAT</a>
+      </div>
+  </div>
+<!-- PPAT End SECTION -->
+  <!---->
+<!-- LTB Section -->
+<div class="tier-box">Loket Terima Berkas</div> 
+  <!-- LTB -->
+  <div class="box">
+  <div class="menu-item dropdown" data-dropdown="true">
+      <div class="icon-text-wrapper dropdown-toggle">
+          <i class="fa fa-folder sidebar-icon"></i>
+          <span class="sidebar-text">Terima Berkas SSPD</span>
+      </div>
+  </div>
+  <div class="dropdown-content">
+      <a href="../admins_LTB/adminv_Terima_Berkas_SSPD/admin_permohonan_validasi.html">Permohonan Validasi SSPD</a>
+  </div>
+  </div>
+<!-- LTB End Section -->
+  <!---->
+<!-- LSB Section -->
+<div class="tier-box">Loket Serah Berkas</div>
+<!-- LSB SECTION -->
+<div class="box">
+  <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+      <div class="icon-text-wrapper dropdown-toggle">
+          <i class="fa fa-paper-plane sidebar-icon"></i>
+          <span class="sidebar-text">Pelayanan Penyerahan SSPD</span>
+      </div>
+  </div>
+  <div class="dropdown-content">
+      <a href="../admins_LSB/adminv_pelayananpenyerahansspd/adminv_Pelayanan_Penyerahan_SSPD/admin_pelayanan_penyerahansspd.html" id="">Pelayanan Penyerahan SSPD </a>
+      <a href="../admins_LSB/adminv_pelayananpenyerahansspd/adminv_Monitoring_Penyerahan_SSPD/admin_monitoring_penyerahansspd.html" id="">Monitoring Penyerahan SSPD</a>
+  </div>
+</div>
+<!-- LSB End Section -->
+  <!---->
+<!-- Peneliti Section -->
+<div class="tier-box">Peneliti</div>
+<div class="box">
+  <div class="menu-item dropdown" data-dropdown="true" id="validasi_bphbt">
+      <div class="icon-text-wrapper dropdown-toggle">
+          <i class="fa fa-gavel sidebar-icon"></i>
+          <span class="sidebar-text">Verifikasi SSPD</span>
+      </div>
+  </div>
+  <div class="dropdown-content">
+      <a href="../admins_Peneliti/adminv_verifikasisspd/adminv_Verifikasi_SSPD/admin_verifikasisspd.html" id="pemutakhiran_data_ppat">Verifikasi SSPD</a>
+      <a href="../admins_Peneliti/adminv_verifikasisspd/adminv_Verifikasi_SSPD/admin_verifikasisspd_off.html" id="status_ppat_1">Verifikasi SSPD Offline</a>
+      <a href="../admins_Peneliti/adminv_verifikasisspd/adminv_Kasie_Verifikasi_SSPD/admin_kasie_verifikasisspd.html" id="">Kasie Verifikasi SSPD</a>
+      <a href="../admins_Peneliti/adminv_verifikasisspd/adminv_Kasie_Verifikasi_SSPD/admin_kasie_verifikasisspd_off.html" id="">Kasie Verifikasi SSPD Offline</a>
+      <a href="../admins_Peneliti/adminv_verifikasisspd/adminv_Proses_SKPD_KurangBayar/admin_proses_SKPD_kurangbayar.html" id="">Proses SKPD Kurang Bayar</a>
+      <a href="../admins_Peneliti/adminv_verifikasisspd/adminv_Proses_SKPD_KurangBayar/admin_proses_SKPD_kurangbayar_off.html" id="">Proses SKPD Kurang Bayar Offline</a>
+  </div>
+</div>
+<div class="box">
+  <div class="menu-item dropdown laporan-bulanan" data-dropdown="true">
+      <div class="icon-text-wrapper dropdown-toggle">
+          <i class="fa fa-television sidebar-icon"></i>
+          <span class="sidebar-text">Monitoring SSPD</span>
+      </div>
+  </div>
+  <div class="dropdown-content">
+      <a href="../admins_Peneliti/adminv_monitoringsspd/adminv_Monitoring_Verifikasi_SSPD/admin_monitoring_verifikasisspd.html">Monitoring Verifikasi SSPD</a>
+      <a href="../admins_Peneliti/adminv_monitoringsspd/adminv_Monitoring_SKPD_KurangBayar/admin_monitoring_skpd_kurangbayar.html">Monitoring SKPD Kurang Bayar</a>
+  </div>
+</div>
+<!-- Peneliti End Section -->
+<!---->
+<!--BANK Section-->
+<div class="tier-box">BANK</div>
+<div class="box">
+  <div class="menu-item dropdown" data-dropdown="true">
+      <div class="icon-text-wrapper dropdown-toggle">
+          <i class="fa fa-usd sidebar-icon"></i>
+          <span class="sidebar-text">Transaksi Bank</span>
+      </div>
+  </div>
+  <div class="dropdown-content">
+      <a href="../admins_Bank/adminv_Transaksi_Bank/admin_hasil_transaksi.html">Hasil transaksi</a>
+  </div>
+</div>
+</div>
+<!--BANK End Section-->
+<!---->
+<!-- Pejabat Section -->
+<!---->
+<!--other section must be on all html-->
+  <div class="box">
+      <div class="menu-item" id="faq_page">
+          <a href="#faqpge" class="icon-text-wrapper">
+              <i class="fa fa-question-circle sidebar-icon"></i>
+              <span class="sidebar-text">FAQ</span>
+          </a>
+      </div>
+  </div>
+  <div class="AUT logout-box">
+      <div class="menu-item" id="logout_page">
+          <div href="#logout" class="icon-text-wrapper">
+              <i class="fa fa-sign-out sidebar-icon"></i>
+              <span class="sidebar-text">Log Out</span>
+          </div>
+      </div>
+  </div>
+  </div>
+</aside>
+<!-- End content aside-->
+  <!---->
+  <!---->
+  <!-- MAIN -->
+  <main class="main-content">
+    <div class="card table-card">
+      <div class="table-controls">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Cari pengguna..." class="form-control">
+          <button id="searchButton" class="btn btn-secondary">
+            <i class="search-icon">Cari</i>
+          </button>
+        </div>
+        
+        <div class="filter-group">
+          <select id="divisionFilter" class="form-control">
+            <option value="">Semua Divisi</option>
+            <option value="Administrator">Admin</option>
+            <option value="PPATK">PPATK</option>
+            <option value="PPAT">PPAT</option>
+            <option value="PPATS">PPATS</option>
+            <option value="LTB">Loket Terima Berkas</option>
+            <option value="Wajib Pajak">WP</option>
+            <option value="Peneliti">Peneliti</option>
+            <option value="Peneliti Validasi">Peneliti Validasi</option>
+            <option value="LSB">Loket Serah Berkas</option>
+          </select>
+          
+          <select id="fieldFilter" class="form-control">
+            <option value="all">Semua Kolom</option>
+            <option value="userid">User ID</option>
+            <option value="nama">Nama</option>
+            <option value="email">Email</option>
+            <option value="nik">NIK</option>
+            <option value="username">Username</option>
+            <option value="telepon">Telepon</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="table-info" id="tableInfo"></div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Divisi</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>NIK</th>
+            <th>Telepon</th>
+            <th>Username</th>
+            <th>NIP</th>
+          </tr>
+        </thead>
+        <tbody id="completeUsersTableBody">
+          <!-- Data akan diisi dengan JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+    <!-- Footer berada di dalam page-wrapper -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>2024 BAPPENDA Kabupaten Bogor</p>
+        </div>
+        <div class="footer-links">
+            <a href="#ini_link_ngarah_ke_linkedin">Farras</a>
+            <a href="#ini_link_ngarah_ke_linkedin">Vendor</a>
+        </div>
+    </footer>
+</div>
+<div id="admin-notifications">
+    <span id="notification-badge" class="badge hidden">New Processed Data!</span>
+</div>
+
+<!-- Overlay untuk konfirmasi log-out -->
+<div id="logout-overlay" class="logout-overlay">
+    <div class="logout-confirm">
+        <div class="icon-container">
+            <i class="fas fa-exclamation"></i>
+        </div>
+        <p>Apakah anda yakin?<br><span>Keluar dari sistem?</span></p>
+        <button id="cancel-logout">Batal</button>
+        <button id="confirm-logout">Iya</button>
+    </div>
+</div>
+<script>
+// Global variable to store all users data
+let allUsers = [];
+let currentFilters = {
+    search: '',
+    division: '',
+    field: 'all'
+};
+
+// Test function to verify everything is working
+function testFilters() {
+    console.log("Testing filters...");
+    console.log("Search input:", document.getElementById("searchInput"));
+    console.log("Division filter:", document.getElementById("divisionFilter"));
+    console.log("Field filter:", document.getElementById("fieldFilter"));
+    console.log("Search button:", document.getElementById("searchButton"));
+    console.log("Table body:", document.getElementById("completeUsersTableBody"));
+    console.log("Table info:", document.getElementById("tableInfo"));
+    console.log("All users loaded:", allUsers.length);
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    console.log("DOM loaded, initializing...");
+    
+    // Test if elements exist
+    testFilters();
+    
+    try {
+        const response = await fetch("http://localhost:3000/api/users/complete");
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        allUsers = await response.json();
+        console.log("Loaded users:", allUsers.length);
+        
+        // Initial display of all users
+        displayUsers(allUsers);
+        
+        // Set up event listeners for search and filters
+        setupSearchAndFilters();
+        
+        // Test filters after setup
+        setTimeout(testFilters, 1000);
+        
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        showErrorMessage("Gagal memuat data. Silakan coba lagi.");
+    }
+});
+
+function displayUsers(users) {
+    const tableBody = document.getElementById("completeUsersTableBody");
+    const tableInfo = document.getElementById("tableInfo");
+    
+    if (!tableBody || !tableInfo) {
+        console.error("Required elements not found");
+        return;
+    }
+    
+    tableBody.innerHTML = "";
+
+    if (!users || users.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="8" class="no-data">
+                    <div class="no-data-message">
+                        <i class="fa fa-search" style="font-size: 2em; color: #ccc; margin-bottom: 10px;"></i>
+                        <p>Tidak ada data yang ditemukan</p>
+                        <small>Silakan coba kata kunci atau filter yang berbeda</small>
+                    </div>
+                </td>
+            </tr>
+        `;
+        tableInfo.textContent = `Menampilkan 0 dari ${allUsers.length} pengguna`;
+        return;
+    }
+
+    users.forEach(user => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${escapeHtml(user.userid || '-')}</td>
+            <td><span class="badge badge-${getDivisionBadgeClass(user.divisi)}">${escapeHtml(user.divisi || '-')}</span></td>
+            <td>${escapeHtml(user.nama || '-')}</td>
+            <td>${escapeHtml(user.email || '-')}</td>
+            <td>${escapeHtml(user.nik || '-')}</td>
+            <td>${escapeHtml(user.telepon || '-')}</td>
+            <td>${escapeHtml(user.username || '-')}</td>
+            <td>${escapeHtml(user.nip || '-')}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+
+    const displayText = users.length === allUsers.length 
+        ? `Menampilkan ${users.length} dari ${allUsers.length} pengguna`
+        : `Menampilkan ${users.length} dari ${allUsers.length} pengguna (difilter)`;
+    
+    tableInfo.textContent = displayText;
+}
+
+function setupSearchAndFilters() {
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const divisionFilter = document.getElementById("divisionFilter");
+    const fieldFilter = document.getElementById("fieldFilter");
+    
+    if (!searchInput || !searchButton || !divisionFilter || !fieldFilter) {
+        console.error("Filter elements not found");
+        return;
+    }
+    
+    console.log("Setting up search and filters...");
+    
+    // Debounced search function for better performance
+    let searchTimeout;
+    const debouncedSearch = () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            console.log("Debounced search triggered");
+            filterUsers();
+        }, 300);
+    };
+    
+    // Search when button is clicked or Enter is pressed
+    searchButton.addEventListener("click", () => {
+        console.log("Search button clicked");
+        filterUsers();
+    });
+    
+    searchInput.addEventListener("keyup", (e) => {
+        if (e.key === "Enter") {
+            console.log("Enter key pressed");
+            filterUsers();
+        } else {
+            debouncedSearch();
+        }
+    });
+    
+    // Filter when dropdown selection changes
+    divisionFilter.addEventListener("change", () => {
+        console.log("Division filter changed:", divisionFilter.value);
+        filterUsers();
+    });
+    
+    fieldFilter.addEventListener("change", () => {
+        console.log("Field filter changed:", fieldFilter.value);
+        filterUsers();
+    });
+    
+    // Clear search functionality
+    searchInput.addEventListener("input", (e) => {
+        if (e.target.value === '') {
+            debouncedSearch();
+        }
+    });
+    
+    console.log("Search and filters setup complete");
+}
+
+function filterUsers() {
+    const searchInput = document.getElementById("searchInput");
+    const divisionFilter = document.getElementById("divisionFilter");
+    const fieldFilter = document.getElementById("fieldFilter");
+    
+    if (!searchInput || !divisionFilter || !fieldFilter) {
+        console.error("Filter elements not found in filterUsers");
+        return;
+    }
+    
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    const division = divisionFilter.value;
+    const field = fieldFilter.value;
+    
+    console.log("Filtering with:", { searchTerm, division, field });
+    
+    currentFilters = {
+        search: searchTerm,
+        division: division,
+        field: field
+    };
+    
+    let filteredUsers = [...allUsers];
+    
+    // Filter by division first
+    if (division && division !== '') {
+        filteredUsers = filteredUsers.filter(user => 
+            user.divisi && user.divisi.toLowerCase() === division.toLowerCase()
+        );
+        console.log("After division filter:", filteredUsers.length);
+    }
+    
+    // Then filter by search term if provided
+    if (searchTerm) {
+        filteredUsers = filteredUsers.filter(user => {
+            // If specific field is selected
+            if (field !== "all") {
+                const userField = user[field] || '';
+                return userField.toString().toLowerCase().includes(searchTerm);
+            }
+            
+            // Search across all relevant fields
+            return (
+                (user.nama && user.nama.toLowerCase().includes(searchTerm)) ||
+                (user.email && user.email.toLowerCase().includes(searchTerm)) ||
+                (user.nik && user.nik && user.nik.toString().includes(searchTerm)) ||
+                (user.userid && user.userid.toLowerCase().includes(searchTerm)) ||
+                (user.username && user.username.toLowerCase().includes(searchTerm)) ||
+                (user.telepon && user.telepon.toString().includes(searchTerm))
+            );
+        });
+        console.log("After search filter:", filteredUsers.length);
+    }
+    
+    displayUsers(filteredUsers);
+}
+
+function showErrorMessage(message) {
+    const tableBody = document.getElementById("completeUsersTableBody");
+    if (!tableBody) {
+        console.error("Table body not found for error message");
+        return;
+    }
+    
+    tableBody.innerHTML = `
+        <tr>
+            <td colspan="8" class="error-message">
+                <div class="error-content">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    <p>${message}</p>
+                    <button onclick="location.reload()" class="btn btn-secondary">
+                        <i class="fa fa-refresh"></i> Muat Ulang
+                    </button>
+                </div>
+            </td>
+        </tr>
+    `;
+}
+
+// Utility functions
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function getDivisionBadgeClass(divisi) {
+    const divisionClasses = {
+        'Administrator': 'primary',
+        'PPATK': 'success',
+        'PPAT': 'success',
+        'PPATS': 'success',
+        'LTB': 'info',
+        'Wajib Pajak': 'warning',
+        'Peneliti': 'danger',
+        'Peneliti Validasi': 'danger',
+        'LSB': 'secondary'
+    };
+    return divisionClasses[divisi] || 'default';
+}
+
+// Export functions for potential external use
+window.searchFunctions = {
+    filterUsers,
+    displayUsers,
+    showErrorMessage
+};
+
+// Debug function to test filters
+window.debugFilters = () => {
+    console.log("Current filters:", currentFilters);
+    console.log("All users:", allUsers.length);
+    console.log("Filter elements:", {
+        searchInput: document.getElementById("searchInput"),
+        divisionFilter: document.getElementById("divisionFilter"),
+        fieldFilter: document.getElementById("fieldFilter")
+    });
+};
+
+// Make test function globally available
+window.testFilters = testFilters;
+</script>
+<script src="script-backend/admin-access-backend.js"></script>
+<!---->
+<!--script front-->
+<script src="design-n-script/script_frontback_java/dashboard.js"></script>
+<script src="design-n-script/script_frontback_java/header_script.js"></script>
+<script src="design-n-script/script_frontback_java/fungsi.js"></script>
+  <!---->
+  <script src="script-backend/header-backend.js"></script>
+</body>
+</html>
